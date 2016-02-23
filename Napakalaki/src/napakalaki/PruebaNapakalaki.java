@@ -15,7 +15,11 @@ public class PruebaNapakalaki {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Prize prize = new Prize(4, 5);
+        BadConsequence badCons = new BadConsequence("Hola esto es una prueba", 4, 8, 7);
+        Monster monster = new Monster("Ralph", 5, badCons, prize);
+        
+        System.out.println(monster.toString());
     }
     
 }
