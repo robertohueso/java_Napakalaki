@@ -65,4 +65,12 @@ public class BadConsequence {
         return this.nHiddenTreasures;
     }
     
+    //Devuelve el estado en forma de String
+    @Override
+    public String toString(){
+        return this.text +
+                " Pierde " + Integer.toString(this.levels) + " Niveles, " +
+                Integer.toString(this.nVisibleTreasures) + " Objetos Visibles y " +
+                Integer.toString(this.nHiddenTreasures) + " Objetos Ocultos.";
+    }
 }

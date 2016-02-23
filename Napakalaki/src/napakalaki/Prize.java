@@ -29,4 +29,11 @@ public class Prize {
         return this.level;
     }
     
+    //Devuelve el estado en forma de String
+    @Override
+    public String toString(){
+        return "Treasures = " + Integer.toString(this.treasures)+ " Levels = " +
+                Integer.toString(this.level);
+    }
+    
 }

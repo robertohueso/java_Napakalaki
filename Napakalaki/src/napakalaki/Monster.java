@@ -33,4 +33,13 @@ public class Monster {
     public int getCombatLevel(){
         return this.combatLevel;
     }
+    
+    //Devuelve el estado en forma de String
+    @Override
+    public String toString(){
+        return "Name = " + this.name +
+                " Combat Level = " + Integer.toString(this.combatLevel) +
+                " Prize = " + this.prize.toString() +
+                " Bad Consequence = " + this.badCons.toString();
+    }
 }
