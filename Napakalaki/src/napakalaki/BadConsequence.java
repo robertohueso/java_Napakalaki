@@ -35,8 +35,8 @@ public class BadConsequence {
         this.levels = levels;
         this.specificVisibleTreasures = new ArrayList(tVisible);
         this.specificHiddenTreasures = new ArrayList(tHidden);
-        this.nHiddenTreasures = tHidden.size();
-        this.nVisibleTreasures = tVisible.size();
+        this.nHiddenTreasures = 0;
+        this.nVisibleTreasures = 0;
     }
     
     public BadConsequence(String text){
@@ -72,5 +72,6 @@ public class BadConsequence {
                 " Pierde " + Integer.toString(this.levels) + " Niveles, " +
                 Integer.toString(this.nVisibleTreasures) + " Objetos Visibles y " +
                 Integer.toString(this.nHiddenTreasures) + " Objetos Ocultos.";
+                //FIXME Es necesario imprimir los tesoros visibles/ocultos?
     }
 }
