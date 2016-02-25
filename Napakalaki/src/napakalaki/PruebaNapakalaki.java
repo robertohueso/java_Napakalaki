@@ -92,6 +92,37 @@ public class PruebaNapakalaki {
         prize =  new Prize(2, 1);
         monstruos.add(new Monster("Los hondos", 8, bc, prize));
         
+        //Semillas de Cthulhu
+        bc = new BadConsequence("Pierdes 2 niveles y 2 tesoros ocultos",
+                2, 0, 2);
+        prize =  new Prize(2, 1);
+        monstruos.add(new Monster("Semillas de Cthulhu", 4, bc, prize));
+        
+        //Dameargo
+        bc = new BadConsequence("Te intentas escaquear. Pierdes 1 mano visible",
+                0, new ArrayList(Arrays.asList(TreasureKind.ONEHAND)),
+                new ArrayList());
+        prize =  new Prize(2, 1);
+        monstruos.add(new Monster("Dameargo", 1, bc, prize));
+        
+        //Pollipolipo volante
+        bc = new BadConsequence("Da mucho asquito. Pierdes 3 niveles",
+                3, 0, 0);
+        prize =  new Prize(1, 1);
+        monstruos.add(new Monster("Pollipolipo volante", 3, bc, prize));
+        
+        //Yskhtihyssg-Goth
+        bc = new BadConsequence("No le hace gracia que pronuncien mal su nombre."
+                + "Estas muerto");
+        prize =  new Prize(3, 1);
+        monstruos.add(new Monster("Yskhtihyssg-Goth", 12, bc, prize));
+        
+        //Familia Feliz
+        bc = new BadConsequence("La familia te atrapa. Estas muerto");
+        prize =  new Prize(4, 1);
+        monstruos.add(new Monster("Familia Feliz", 1, bc, prize));
+        
+        //Roboggoth
         
         /*
         //monstruos.add()
