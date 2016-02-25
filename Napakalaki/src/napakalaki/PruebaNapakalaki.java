@@ -123,6 +123,33 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("Familia Feliz", 1, bc, prize));
         
         //Roboggoth
+        bc = new BadConsequence("La quinta directiva primaria te obliga a perder"
+                + "2 niveles y 2 tesoros de una mano visibles",
+                2, new ArrayList(Arrays.asList(TreasureKind.ONEHAND, TreasureKind.ONEHAND)),
+                new ArrayList());
+        prize =  new Prize(2, 1);
+        monstruos.add(new Monster("Roboggoth", 8, bc, prize));
+        
+        //El espia
+        bc = new BadConsequence("Te asusta en la noche. Pierdes 1 casco visible",
+                0, new ArrayList(Arrays.asList(TreasureKind.HELMET)),
+                new ArrayList());
+        prize =  new Prize(1, 1);
+        monstruos.add(new Monster("El espia", 5, bc, prize));
+        
+        //El lenguas
+        bc = new BadConsequence("Menudo susto te llevas. Pierdes 3 niveles y 5 tesoros visibles",
+                3, 5, 0);
+        prize =  new Prize(1, 1);
+        monstruos.add(new Monster("El lenguas", 20, bc, prize));
+        
+        //Bicefalo
+        bc = new BadConsequence("Te faltan manos para tanta cabeza."
+                + "Pierdes 3 niveles y tus tesoros visibles de las manos",
+                0, new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)),
+                new ArrayList());
+        prize =  new Prize(1, 1);
+        monstruos.add(new Monster("Bicefalo", 20, bc, prize));
         
         /*
         //monstruos.add()
