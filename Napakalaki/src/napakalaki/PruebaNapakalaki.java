@@ -146,7 +146,7 @@ public class PruebaNapakalaki {
         //Bicefalo
         bc = new BadConsequence("Te faltan manos para tanta cabeza."
                 + "Pierdes 3 niveles y tus tesoros visibles de las manos",
-                0, new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)),
+                0, new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS, TreasureKind.ONEHAND, TreasureKind.ONEHAND)),
                 new ArrayList());
         prize =  new Prize(1, 1);
         monstruos.add(new Monster("Bicefalo", 20, bc, prize));
