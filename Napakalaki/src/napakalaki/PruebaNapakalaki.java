@@ -51,6 +51,19 @@ public class PruebaNapakalaki {
         }
         return list_of_monsters;
     }
+    
+    public static ArrayList<Monster> treasureKindLoosers(TreasureKind treasure, ArrayList<Monster> monsters){
+        ArrayList<Monster> list_of_monsters = new ArrayList<>();
+        BadConsequence bc;
+        
+        for(Monster monster : monsters){
+            bc = monster.getBadConsequence();
+            if(bc.getSpecificVisibleTreasures().contains(treasure) ||
+               bc.getSpecificHiddenTreasures().contains(treasure))
+                list_of_monsters.add(monster);
+        }
+        return list_of_monsters;
+    }
     /**
      * @param args the command line arguments
      */
@@ -191,10 +204,12 @@ public class PruebaNapakalaki {
         ArrayList<Monster> greater_10_monsters;
         ArrayList<Monster> level_loosers;
         ArrayList<Monster> level_earning_greater_1;
+        ArrayList<Monster> onehand_loosers;
         
         greater_10_monsters = greaterCombatLevel(10, monstruos);
         level_loosers = levelLoosers(monstruos);
         level_earning_greater_1 = greaterLevelPrize(1, monstruos);
+        onehand_loosers = treasureKindLoosers(TreasureKind.ONEHAND, monstruos);
     }
 
 }
