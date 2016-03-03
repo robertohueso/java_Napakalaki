@@ -22,6 +22,23 @@ public class PruebaNapakalaki {
         }
         return list_of_monsters;
     }
+    
+    public static ArrayList<Monster> levelLoosers(ArrayList<Monster> monsters){
+        ArrayList<Monster> list_of_monsters = new ArrayList<>();
+        BadConsequence bc;
+        
+        for(Monster monster : monsters){
+            bc = monster.getBadConsequence();
+            if(bc.getNHidden() == 0 &&
+               bc.getNVisible() == 0 &&
+               bc.getSpecificHiddenTreasures().isEmpty() &&
+               bc.getSpecificVisibleTreasures().isEmpty() &&
+               bc.getLevels() > 0){
+                list_of_monsters.add(monster);
+            }
+        }
+        return list_of_monsters;
+    }
     /**
      * @param args the command line arguments
      */
@@ -160,7 +177,10 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("Bicefalo", 20, bc, prize));
 
         ArrayList<Monster> greater_10_monsters;
+        ArrayList<Monster> level_loosers;
+        
         greater_10_monsters = greaterCombatLevel(10, monstruos);
+        level_loosers = levelLoosers(monstruos);
     }
 
 }
