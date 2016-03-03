@@ -81,8 +81,7 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("Byakhees de bonanza", 8, bc, prize));
 
         //Chibithulhu
-        bc = new BadConsequence("Embobados del con el lindo primigeneo te descartas"
-                + "de tu casco visible",
+        bc = new BadConsequence("Embobados del con el lindo primigeneo te descartas de tu casco visible",
                 0, new ArrayList(Arrays.asList(TreasureKind.HELMET)),
                 new ArrayList());
         prize =  new Prize(1, 1);
@@ -96,8 +95,7 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("El sopor de Dunwich", 2, bc, prize));
 
         //Angeles de la noche ibicenca
-        bc = new BadConsequence("Te atrapan para llevarte de fiesta y te dejan caer"
-                + "en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta",
+        bc = new BadConsequence("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta",
                 0, new ArrayList(Arrays.asList(TreasureKind.ONEHAND)),
                 new ArrayList(Arrays.asList(TreasureKind.ONEHAND)));
         prize =  new Prize(4, 1);
@@ -117,8 +115,7 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("H.P Munchcraft", 6, bc, prize));
 
         //Bichgooth
-        bc = new BadConsequence("Sientes bichos bajo la ropa. Descarta"
-                + "la armadura visible",
+        bc = new BadConsequence("Sientes bichos bajo la ropa. Descarta la armadura visible",
                 0, new ArrayList(Arrays.asList(TreasureKind.ARMOR)),
                 new ArrayList());
         prize =  new Prize(1, 1);
@@ -137,8 +134,7 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("La que redacta en las tinieblas", 2, bc, prize));
 
         //Los hondos
-        bc = new BadConsequence("Estos monstruos resultan bastante superficiales"
-                + "y te aburren mortalmente. Estas muerto");
+        bc = new BadConsequence("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estas muerto");
         prize =  new Prize(2, 1);
         monstruos.add(new Monster("Los hondos", 8, bc, prize));
 
@@ -162,8 +158,7 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("Pollipolipo volante", 3, bc, prize));
 
         //Yskhtihyssg-Goth
-        bc = new BadConsequence("No le hace gracia que pronuncien mal su nombre."
-                + "Estas muerto");
+        bc = new BadConsequence("No le hace gracia que pronuncien mal su nombre. Estas muerto");
         prize =  new Prize(3, 1);
         monstruos.add(new Monster("Yskhtihyssg-Goth", 12, bc, prize));
 
@@ -173,8 +168,7 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("Familia Feliz", 1, bc, prize));
 
         //Roboggoth
-        bc = new BadConsequence("La quinta directiva primaria te obliga a perder"
-                + "2 niveles y 2 tesoros de una mano visibles",
+        bc = new BadConsequence("La quinta directiva primaria te obliga a perder 2 niveles y 2 tesoros de una mano visibles",
                 2, new ArrayList(Arrays.asList(TreasureKind.ONEHAND, TreasureKind.ONEHAND)),
                 new ArrayList());
         prize =  new Prize(2, 1);
@@ -200,7 +194,8 @@ public class PruebaNapakalaki {
                 new ArrayList());
         prize =  new Prize(1, 1);
         monstruos.add(new Monster("Bicefalo", 20, bc, prize));
-
+        
+        //Filtrado de monstruos
         ArrayList<Monster> greater_10_monsters;
         ArrayList<Monster> level_loosers;
         ArrayList<Monster> level_earning_greater_1;
@@ -210,6 +205,23 @@ public class PruebaNapakalaki {
         level_loosers = levelLoosers(monstruos);
         level_earning_greater_1 = greaterLevelPrize(1, monstruos);
         onehand_loosers = treasureKindLoosers(TreasureKind.ONEHAND, monstruos);
+        
+        //Muestra los resultados al aplicar los filtros
+        System.out.printf("Monstruos con nivel mayor que 10:\n");
+        for(Monster monstruo : greater_10_monsters)
+            System.out.printf("\t" + monstruo.toString() + "\n");
+        
+        System.out.printf("Monstruos que solo pierden nivel con el mal rollo:\n");
+        for(Monster monstruo : level_loosers)
+            System.out.printf("\t" + monstruo.toString() + "\n");
+        
+        System.out.printf("Monstruos que ganan mas de 1 nivel con el buen rollo:\n");
+        for(Monster monstruo : level_earning_greater_1)
+            System.out.printf("\t" + monstruo.toString() + "\n");
+        
+        System.out.printf("Monstruos que pierden tesoros de 1 mano con el mal rollo:\n");
+        for(Monster monstruo : onehand_loosers)
+            System.out.printf("\t" + monstruo.toString() + "\n");
     }
 
 }
