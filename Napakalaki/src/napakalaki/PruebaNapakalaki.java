@@ -39,6 +39,18 @@ public class PruebaNapakalaki {
         }
         return list_of_monsters;
     }
+    
+    public static ArrayList<Monster> greaterLevelPrize(int level, ArrayList<Monster> monsters){
+        ArrayList<Monster> list_of_monsters = new ArrayList<>();
+        Prize prize;
+        
+        for(Monster monster : monsters){
+            prize = monster.getPrize();
+            if(prize.getLevel() > level)
+                list_of_monsters.add(monster);
+        }
+        return list_of_monsters;
+    }
     /**
      * @param args the command line arguments
      */
@@ -178,9 +190,11 @@ public class PruebaNapakalaki {
 
         ArrayList<Monster> greater_10_monsters;
         ArrayList<Monster> level_loosers;
+        ArrayList<Monster> level_earning_greater_1;
         
         greater_10_monsters = greaterCombatLevel(10, monstruos);
         level_loosers = levelLoosers(monstruos);
+        level_earning_greater_1 = greaterLevelPrize(1, monstruos);
     }
 
 }

@@ -39,6 +39,11 @@ public class Monster {
         return this.badCons;
     }
     
+    public Prize getPrize(){
+        //FIXME Copia o devolucion por referencia?
+        return this.prize;
+    }
+    
     //Devuelve el estado en forma de String
     @Override
     public String toString(){
