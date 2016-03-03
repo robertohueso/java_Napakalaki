@@ -65,6 +65,14 @@ public class BadConsequence {
         return this.nHiddenTreasures;
     }
     
+    public ArrayList<TreasureKind> getSpecificVisibleTreasures(){
+        return (ArrayList<TreasureKind>) this.specificVisibleTreasures.clone();
+    }
+    
+    public ArrayList<TreasureKind> getSpecificHiddenTreasures(){
+        return (ArrayList<TreasureKind>) this.specificHiddenTreasures.clone();
+    }
+    
     //Devuelve el estado en forma de String
     @Override
     public String toString(){

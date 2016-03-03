@@ -13,7 +13,15 @@ import java.util.Arrays;
  * @author roberto
  */
 public class PruebaNapakalaki {
-
+    
+    public static ArrayList<Monster> greaterCombatLevel(int level, ArrayList<Monster> monsters){
+        ArrayList<Monster> list_of_monsters = new ArrayList<>();
+        for(Monster monster : monsters){
+            if(monster.getCombatLevel() > 10)
+                list_of_monsters.add(monster);
+        }
+        return list_of_monsters;
+    }
     /**
      * @param args the command line arguments
      */
@@ -151,14 +159,8 @@ public class PruebaNapakalaki {
         prize =  new Prize(1, 1);
         monstruos.add(new Monster("Bicefalo", 20, bc, prize));
 
-        /*
-        //monstruos.add()
-        Prize prize = new Prize(4, 5);
-        BadConsequence badCons = new BadConsequence("Hola esto es una prueba", 4, 8, 7);
-        Monster monster = new Monster("Ralph", 5, badCons, prize);
-
-        System.out.println(monster.toString());
-        */
+        ArrayList<Monster> greater_10_monsters;
+        greater_10_monsters = greaterCombatLevel(10, monstruos);
     }
 
 }
