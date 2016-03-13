@@ -20,7 +20,6 @@ public class Monster {
     public Monster(String name, int level, BadConsequence bc, Prize prize){
         this.name = name;
         this.combatLevel = level;
-        //FIXME ¿Es necesario constructor de copia?
         this.prize = prize;
         this.badCons = bc;
     }
@@ -35,12 +34,10 @@ public class Monster {
     }
     
     public BadConsequence getBadConsequence(){
-        //FIXME Copia o devolucion por referencia?
         return this.badCons;
     }
     
     public Prize getPrize(){
-        //FIXME Copia o devolucion por referencia?
         return this.prize;
     }
     

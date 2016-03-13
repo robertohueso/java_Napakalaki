@@ -76,10 +76,6 @@ public class BadConsequence {
     //Devuelve el estado en forma de String
     @Override
     public String toString(){
-        return this.text +
-                " Pierde " + Integer.toString(this.levels) + " Niveles, " +
-                Integer.toString(this.nVisibleTreasures) + " Objetos Visibles y " +
-                Integer.toString(this.nHiddenTreasures) + " Objetos Ocultos.";
-                //FIXME Es necesario imprimir los tesoros visibles/ocultos?
+        return this.text;
     }
 }
