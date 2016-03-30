@@ -11,7 +11,7 @@ package napakalaki;
  */
 public class Player {
     //Variables
-    public static final int MAXLEVEL = 10;
+    static final int MAXLEVEL = 10;
     private String name;
     private int level;
     private boolean dead = true;
