@@ -15,6 +15,10 @@ public class Napakalaki {
     //Variables
     private static final Napakalaki instance = null;
     private int currentPlayerIndex;
+    private Monster currentMonster;
+    private CardDealer dealer;
+    private Player currentPlayer;
+    private ArrayList<Player> players;
     
     //Construccion del objeto
     private Napakalaki(){}
