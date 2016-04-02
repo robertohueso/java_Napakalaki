@@ -14,14 +14,14 @@ public class Monster {
     private String name;
     private int combatLevel;
     private Prize prize;
-    private BadConsequence badCons;
+    private BadConsequence badConsequence;
     
     //Constructor
     public Monster(String name, int level, BadConsequence bc, Prize prize){
         this.name = name;
         this.combatLevel = level;
         this.prize = prize;
-        this.badCons = bc;
+        this.badConsequence = bc;
     }
     
     //Getters
@@ -34,7 +34,7 @@ public class Monster {
     }
     
     public BadConsequence getBadConsequence(){
-        return this.badCons;
+        return this.badConsequence;
     }
     
     public Prize getPrize(){
@@ -47,6 +47,6 @@ public class Monster {
         return "Name = " + this.name +
                 " Combat Level = " + Integer.toString(this.combatLevel) +
                 " Prize: " + this.prize.toString() +
-                " Bad Consequence: " + this.badCons.toString();
+                " Bad Consequence: " + this.badConsequence.toString();
     }
 }
