@@ -13,14 +13,19 @@ import java.util.ArrayList;
  */
 public class CardDealer {
     //Variables
-    private static final CardDealer instance = null;
+    private static final CardDealer instance = new CardDealer();
     private ArrayList<Monster> unusedMonsters;
     private ArrayList<Monster> usedMonsters;
     private ArrayList<Treasure> unusedTreasures;
     private ArrayList<Treasure> usedTreasures;
     
     //Construccion del objeto
-    private CardDealer(){}
+    private CardDealer(){
+        this.unusedMonsters = new ArrayList<>();
+        this.usedMonsters = new ArrayList<>();
+        this.unusedTreasures = new ArrayList<>();
+        this.usedTreasures = new ArrayList<>();
+    }
     
     public static CardDealer getInstance(){
         return instance;

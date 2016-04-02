@@ -11,7 +11,7 @@ package napakalaki;
  */
 public class Dice {
     //Variables
-    private static final Dice instance = null;
+    private static final Dice instance = new Dice();
     
     //Construccion del objeto
     private Dice(){}

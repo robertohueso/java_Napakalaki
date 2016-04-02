@@ -17,7 +17,9 @@ public class Treasure {
     
     //Metodos publicos
     public Treasure(String n, int bonus, TreasureKind t){
-        
+        this.name = n;
+        this.bonus = bonus;
+        this.type = t;
     }
     
     public String getName(){

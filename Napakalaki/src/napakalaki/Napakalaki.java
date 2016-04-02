@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Napakalaki {
     //Variables
-    private static final Napakalaki instance = null;
+    private static final Napakalaki instance = new Napakalaki();
     private int currentPlayerIndex;
     private Monster currentMonster;
     private CardDealer dealer;
@@ -21,7 +21,10 @@ public class Napakalaki {
     private ArrayList<Player> players;
     
     //Construccion del objeto
-    private Napakalaki(){}
+    private Napakalaki(){
+        //FIXME Inicializar todo?
+        this.players = new ArrayList<>();
+    }
     
     public static Napakalaki getInstance(){
         return instance;
