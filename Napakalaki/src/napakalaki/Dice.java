@@ -21,7 +21,7 @@ public class Dice {
     }
     
     //Metodos publicos
-    public int getNumber(){
+    public int nextNumber(){
         
     }
 }
