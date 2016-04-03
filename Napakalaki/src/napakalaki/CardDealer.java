@@ -7,6 +7,7 @@ package napakalaki;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  *
@@ -196,11 +197,11 @@ public class CardDealer {
     }
 
     private void shuffleTreasures(){
-
+        Collections.shuffle(this.unusedTreasures);
     }
 
     private void shuffleMonsters(){
-
+        Collections.shuffle(this.unusedMonsters);
     }
 
     //Metodos publicos
@@ -213,11 +214,11 @@ public class CardDealer {
     }
 
     public void giveTreasureBack(Treasure t){
-
+        this.usedTreasures.add(t);
     }
 
     public void giveMonsterBack(Monster m){
-
+        this.usedMonsters.add(m);
     }
 
     public void initCards(){
