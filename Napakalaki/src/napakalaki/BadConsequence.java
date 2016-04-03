@@ -43,8 +43,8 @@ public class BadConsequence {
     public BadConsequence(String text){
         this.text = text;
         this.levels = 10;
-        this.nVisibleTreasures = 10;
-        this.nHiddenTreasures = 10;
+        this.nVisibleTreasures = BadConsequence.MAXTREASURES;
+        this.nHiddenTreasures = BadConsequence.MAXTREASURES;
         this.specificVisibleTreasures = new ArrayList();
         this.specificHiddenTreasures = new ArrayList();
     }
