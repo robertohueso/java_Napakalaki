@@ -103,7 +103,7 @@ public class PruebaNapakalaki {
 
         //El gorrón en el umbral
         bc = new BadConsequence("Pierdes todos tus tesoros visibles",
-                0, 10, 0);
+                0, BadConsequence.MAXTREASURES, 0);
         prize =  new Prize(3, 1);
         monstruos.add(new Monster("El gorron en el umbral", 10, bc, prize));
 
