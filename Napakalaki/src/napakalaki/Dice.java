@@ -5,6 +5,8 @@
  */
 package napakalaki;
 
+import java.util.Random;
+
 /**
  *
  * @author roberto
@@ -22,6 +24,6 @@ public class Dice {
     
     //Metodos publicos
     public int nextNumber(){
-        
+        return (new Random().nextInt(6) + 1);
     }
 }
