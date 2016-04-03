@@ -30,7 +30,7 @@ public class Treasure {
         
     }
     
-    public int getType(){
+    public TreasureKind getType(){
         
     }
 }

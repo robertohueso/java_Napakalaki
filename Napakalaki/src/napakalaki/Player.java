@@ -32,23 +32,31 @@ public class Player {
     
     //Metodos privados
     private void bringToLife(){
-        
+        this.dead = false;
     }
     
     private int getCombatLevel(){
-        
+        int nivel_total = this.level;
+        for(Treasure tesoro:this.visibleTreasures){
+            nivel_total += tesoro.getBonus();
+        }
+        return nivel_total;
     }
     
     private void incrementLevels(int l){
-        
+        this.level += l;
     }
     
     private void decrementLevels(int l){
-        
+        int nuevo_nivel = this.level - l;
+        if(nuevo_nivel >= 1)
+            this.level = nuevo_nivel;
+        else
+            this.level = 1;
     }
     
     private void setPendingBadConsequence(BadConsequence b){
-        
+        this.pendingBadConsequence = b;
     }
     
     private void applyPrize(Monster m){
@@ -64,20 +72,26 @@ public class Player {
     }
     
     private int howManyVisibleTreasures(TreasureKind tKind){
-        
+        int total = 0;
+        for(Treasure tesoro:this.visibleTreasures){
+            if(tesoro.getType() == tKind)
+                total++;
+        }
+        return total;
     }
     
     private void dieIfNoTreasures(){
-        
+        if(this.visibleTreasures.isEmpty() && this.hiddenTreasures.isEmpty())
+            this.dead = true;
     }
     
     //Metodos publicos
     public String getName(){
-        
+        return this.name;
     }
     
     public boolean isDead(){
-        
+        return this.dead;
     }
     
     public ArrayList<Treasure> getHiddenTreasures(){
@@ -105,7 +119,7 @@ public class Player {
     }
     
     public boolean validState(){
-
+        return this.pendingBadConsequence.isEmpty() && this.hiddenTreasures.size() <= 4;
     }
     
     public void initTreasures(){
@@ -113,7 +127,7 @@ public class Player {
     }
     
     public int getLevels(){
-        
+        return this.level;
     }
     
     public void discardAllTreasures(){
