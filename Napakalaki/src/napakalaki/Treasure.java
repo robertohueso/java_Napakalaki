@@ -23,14 +23,14 @@ public class Treasure {
     }
     
     public String getName(){
-        
+        return this.name;
     }
     
     public int getBonus(){
-        
+        return this.bonus;
     }
     
     public TreasureKind getType(){
-        
+        return this.type;
     }
 }
