@@ -37,8 +37,12 @@ public class Monster {
         return this.badConsequence;
     }
     
-    public Prize getPrize(){
-        return this.prize;
+    public int getLevelsGained(){
+        return this.prize.getLevels();
+    }
+    
+    public int getTreasuresGained(){
+        return this.prize.getTreasures();
     }
     
     //Devuelve el estado en forma de String

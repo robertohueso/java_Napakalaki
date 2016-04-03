@@ -12,12 +12,12 @@ package napakalaki;
 public class Prize {
     //Datos miembros
     private int treasures;
-    private int level;
+    private int levels;
     
     //Constructor
     public Prize(int treasures, int level){
         this.treasures = treasures;
-        this.level = level;
+        this.levels = level;
     }
     
     //Getters basicos
@@ -25,8 +25,8 @@ public class Prize {
         return this.treasures;
     }
     
-    public int getLevel(){
-        return this.level;
+    public int getLevels(){
+        return this.levels;
     }
     
     //Devuelve el estado en forma de String

@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class BadConsequence {
     //Datos miembro
+    static final int MAXTREASURES = 10;
     private String text;
     private int levels;
     private int nVisibleTreasures;
@@ -49,19 +50,22 @@ public class BadConsequence {
     }
     
     //Getters basicos
-    public String getText(){
-        return this.text;
+    public boolean isEmpty(){
+        return this.nVisibleTreasures == 0 &&
+               this.nHiddenTreasures == 0 &&
+               this.specificVisibleTreasures.isEmpty() &&
+               this.specificHiddenTreasures.isEmpty();
     }
     
     public int getLevels(){
         return this.levels;
     }
     
-    public int getNVisible(){
+    public int getNVisibleTreasures(){
         return this.nVisibleTreasures;
     }
     
-    public int getNHidden(){
+    public int getNHiddenTreasures(){
         return this.nHiddenTreasures;
     }
     
@@ -71,6 +75,18 @@ public class BadConsequence {
     
     public ArrayList<TreasureKind> getSpecificHiddenTreasures(){
         return (ArrayList<TreasureKind>) this.specificHiddenTreasures.clone();
+    }
+    
+    public void substractVisibleTreasure(Treasure t){
+        
+    }
+    
+    public void substractHiddenTreasure(Treasure t){
+        
+    }
+    
+    public BadConsequence adjustToFitTreasureList(ArrayList<Treasure> v, ArrayList<Treasure> h){
+        
     }
     
     //Devuelve el estado en forma de String
