@@ -6,6 +6,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -22,7 +23,10 @@ public class Napakalaki {
     
     //Construccion del objeto
     private Napakalaki(){
-        //FIXME Inicializar todo?
+        this.currentPlayerIndex = -1;
+        this.currentMonster = null;
+        this.dealer = null;
+        this.currentPlayer = null;
         this.players = new ArrayList<>();
     }
     
@@ -32,15 +36,31 @@ public class Napakalaki {
     
     //Metodos privados
     private void initPlayers(ArrayList<String> names){
-        
+        for(String name:names){
+            this.players.add(new Player(name));
+        }
     }
     
     private Player nextPlayer(){
-        
+        if(this.currentPlayerIndex == -1)
+            this.currentPlayerIndex = (new Random().nextInt(this.players.size()));
+        else{
+            int new_index = this.currentPlayerIndex + 1;
+            if(new_index == this.players.size())
+                this.currentPlayerIndex = 0;
+            else
+                this.currentPlayerIndex = new_index;
+        }
+        this.currentPlayer = this.players.get(this.currentPlayerIndex);
+        return this.currentPlayer;
     }
     
     private boolean nextTurnAllowed(){
-        
+        //FIXME Acción en caso de no estar inicializado?
+        if(this.currentPlayer == null)
+            return false;
+        else
+            return this.currentPlayer.validState();
     }
     
     //Metodos publicos
@@ -65,11 +85,11 @@ public class Napakalaki {
     }
     
     public Player getCurrentPlayer(){
-        
+        return this.currentPlayer;
     }
     
     public Monster getCurrentMonster(){
-        
+        return this.currentMonster;
     }
     
     public boolean nextTurn(){
@@ -77,6 +97,6 @@ public class Napakalaki {
     }
     
     public boolean endOfGame(CombatResult result){
-        
+        return result == CombatResult.WINGAME;
     }
 }
