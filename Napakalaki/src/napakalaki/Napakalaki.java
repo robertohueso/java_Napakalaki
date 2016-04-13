@@ -44,23 +44,15 @@ public class Napakalaki {
     private Player nextPlayer(){
         if(this.currentPlayerIndex == -1)
             this.currentPlayerIndex = (new Random().nextInt(this.players.size()));
-        else{
-            int new_index = this.currentPlayerIndex + 1;
-            if(new_index == this.players.size())
-                this.currentPlayerIndex = 0;
-            else
-                this.currentPlayerIndex = new_index;
-        }
+        else
+            this.currentPlayerIndex = (this.currentPlayerIndex + 1) % this.players.size();
+            
         this.currentPlayer = this.players.get(this.currentPlayerIndex);
         return this.currentPlayer;
     }
     
     private boolean nextTurnAllowed(){
-        //FIXME Acción en caso de no estar inicializado?
-        if(this.currentPlayer == null)
-            return false;
-        else
-            return this.currentPlayer.validState();
+        return this.currentPlayer.validState();
     }
     
     //Metodos publicos

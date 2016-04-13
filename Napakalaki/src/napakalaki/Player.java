@@ -25,9 +25,10 @@ public class Player {
     //Constructor
     public Player(String name){
         this.name = name;
+        this.level = 1;
         this.hiddenTreasures = new ArrayList<>();
         this.visibleTreasures = new ArrayList<>();
-        //FIXME Inicializar BadCons?
+        this.pendingBadConsequence =  null;
     }
     
     //Metodos privados
