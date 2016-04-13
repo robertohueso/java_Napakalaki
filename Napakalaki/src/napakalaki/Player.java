@@ -78,7 +78,7 @@ public class Player {
         TreasureKind kind = t.getType();
         
         //Comprueba si se puede hacer visible
-        if(kind == TreasureKind.ARMOR && kind == TreasureKind.HELMET &&
+        if(kind == TreasureKind.ARMOR || kind == TreasureKind.HELMET ||
            kind == TreasureKind.SHOES)
             return !(t_kinds.contains(kind));
         else{
