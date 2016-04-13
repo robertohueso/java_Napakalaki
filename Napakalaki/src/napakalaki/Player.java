@@ -6,6 +6,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -69,7 +70,25 @@ public class Player {
     }
     
     private boolean canMakeTreasureVisible(Treasure t){
+        //Crea lista de tipos
+        ArrayList<TreasureKind> t_kinds = new ArrayList();
+        for(Treasure treasure:this.visibleTreasures){
+            t_kinds.add(treasure.getType());
+        }
+        TreasureKind kind = t.getType();
         
+        //Comprueba si se puede hacer visible
+        if(kind == TreasureKind.ARMOR && kind == TreasureKind.HELMET &&
+           kind == TreasureKind.SHOES)
+            return !(t_kinds.contains(kind));
+        else{
+            if(kind == TreasureKind.BOTHHANDS)
+                return !(t_kinds.contains(TreasureKind.ONEHAND)) &&
+                        !(t_kinds.contains(TreasureKind.BOTHHANDS));
+            else{
+                return Collections.frequency(t_kinds, kind) <= 1;
+            }
+        }
     }
     
     private int howManyVisibleTreasures(TreasureKind tKind){
