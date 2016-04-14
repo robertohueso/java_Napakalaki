@@ -73,7 +73,9 @@ public class Napakalaki {
     }
     
     public void initGame(ArrayList<String> players){
-        
+        this.initPlayers(players);
+        this.dealer.initCards();
+        this.nextTurn();
     }
     
     public Player getCurrentPlayer(){
@@ -85,7 +87,23 @@ public class Napakalaki {
     }
     
     public boolean nextTurn(){
+        //FIXME ¿Debo inicializar stateOK a false?
+        boolean stateOK = false;
+        boolean dead;
         
+        if(this.currentPlayer != null)
+            stateOK = this.nextTurnAllowed();
+        
+        if(stateOK){
+            this.currentMonster = this.dealer.nextMonster();
+            this.currentPlayer = this.nextPlayer();
+            dead = this.currentPlayer.isDead();
+            
+            if(dead)
+                this.currentPlayer.initTreasures();
+        }
+        
+        return stateOK;
     }
     
     public boolean endOfGame(CombatResult result){
