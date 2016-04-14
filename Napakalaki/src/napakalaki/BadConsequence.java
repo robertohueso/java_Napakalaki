@@ -78,11 +78,11 @@ public class BadConsequence {
     }
     
     public void substractVisibleTreasure(Treasure t){
-        
+        this.specificVisibleTreasures.remove(t.getType());
     }
     
     public void substractHiddenTreasure(Treasure t){
-        
+        this.specificHiddenTreasures.remove(t.getType());
     }
     
     public BadConsequence adjustToFitTreasureList(ArrayList<Treasure> v, ArrayList<Treasure> h){
