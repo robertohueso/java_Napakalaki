@@ -206,11 +206,23 @@ public class CardDealer {
 
     //Metodos publicos
     public Treasure nextTreasure(){
-
+        if(this.unusedTreasures.isEmpty()){
+            this.unusedTreasures = new ArrayList(this.usedTreasures);
+            this.usedTreasures.clear();
+            this.shuffleTreasures();
+        }
+        
+        return this.unusedTreasures.remove(0);
     }
 
     public Monster nextMonster(){
-
+        if(this.unusedMonsters.isEmpty()){
+            this.unusedMonsters = new ArrayList(this.usedMonsters);
+            this.usedMonsters.clear();
+            this.shuffleTreasures();
+        }
+        
+        return this.unusedMonsters.remove(0);
     }
 
     public void giveTreasureBack(Treasure t){
