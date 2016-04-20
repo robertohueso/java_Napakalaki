@@ -142,7 +142,11 @@ public class Player {
     }
     
     public void makeTreasureVisible(Treasure t){
-        
+        boolean canI = this.canMakeTreasureVisible(t);
+        if(canI){
+            this.visibleTreasures.add(t);
+            this.hiddenTreasures.remove(t);
+        }
     }
     
     public void discardVisibleTreasure(Treasure t){
