@@ -219,7 +219,7 @@ public class CardDealer {
         if(this.unusedMonsters.isEmpty()){
             this.unusedMonsters = new ArrayList(this.usedMonsters);
             this.usedMonsters.clear();
-            this.shuffleTreasures();
+            this.shuffleMonsters();
         }
         
         return this.unusedMonsters.remove(0);

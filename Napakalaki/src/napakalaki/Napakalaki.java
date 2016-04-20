@@ -23,9 +23,10 @@ public class Napakalaki {
     
     //Construccion del objeto
     private Napakalaki(){
+        //FIXME Inicializar dealer con getInstance
         this.currentPlayerIndex = -1;
         this.currentMonster = null;
-        this.dealer = null;
+        this.dealer = CardDealer.getInstance();
         this.currentPlayer = null;
         this.players = new ArrayList<>();
     }
@@ -61,11 +62,13 @@ public class Napakalaki {
     }
     
     public void discardVisibleTreasures(ArrayList<Treasure> treasures){
-        
+        for(Treasure treasure:treasures)
+            this.currentPlayer.discardVisibleTreasure(treasure);
     }
     
     public void discardHiddenTreasures(ArrayList<Treasure> treasures){
-        
+        for(Treasure treasure:treasures)
+            this.currentPlayer.discardHiddenTreasure(treasure);
     }
     
     public void makeTreasuresVisible(ArrayList<Treasure> treasures){
@@ -87,8 +90,7 @@ public class Napakalaki {
     }
     
     public boolean nextTurn(){
-        //FIXME ¿Debo inicializar stateOK a false?
-        boolean stateOK = false;
+        boolean stateOK = true;
         boolean dead;
         
         if(this.currentPlayer != null)
