@@ -58,7 +58,9 @@ public class Napakalaki {
     
     //Metodos publicos
     public CombatResult developCombat(){
-        
+        CombatResult combatResult = this.currentPlayer.combat(this.currentMonster);
+        dealer.giveMonsterBack(this.currentMonster);
+        return combatResult;
     }
     
     public void discardVisibleTreasures(ArrayList<Treasure> treasures){
