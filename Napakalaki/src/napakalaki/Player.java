@@ -190,7 +190,21 @@ public class Player {
     }
     
     public void initTreasures(){
+        CardDealer dealer = CardDealer.getInstance();
+        Dice dice = Dice.getInstance();
+        this.bringToLife();
+        Treasure treasure = dealer.nextTreasure();
+        this.hiddenTreasures.add(treasure);
+        int number = dice.nextNumber();
         
+        if(number > 1){
+            treasure = dealer.nextTreasure();
+            this.hiddenTreasures.add(treasure);
+        }
+        if(number == 6){
+            treasure = dealer.nextTreasure();
+            this.hiddenTreasures.add(treasure);
+        }
     }
     
     public int getLevels(){
