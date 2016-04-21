@@ -77,7 +77,12 @@ public class Player {
     }
     
     private void applyBadConsequence(Monster m){
-        
+        BadConsequence badConsequence = m.getBadConsequence();
+        int nLevels = badConsequence.getLevels();
+        this.decrementLevels(nLevels);
+        BadConsequence pendingBad = badConsequence.adjustToFitTreasureList(
+                this.visibleTreasures, this.hiddenTreasures);
+        this.setPendingBadConsequence(pendingBad);
     }
     
     private boolean canMakeTreasureVisible(Treasure t){
@@ -193,6 +198,12 @@ public class Player {
     }
     
     public void discardAllTreasures(){
-        
+        //FIXME Es necesario hacer la copia?
+        ArrayList<Treasure> visible = new ArrayList<>(this.visibleTreasures);
+        ArrayList<Treasure> hidden = new ArrayList<>(this.hiddenTreasures);
+        for(Treasure treasure:visible)
+            this.discardVisibleTreasure(treasure);
+        for(Treasure treasure:hidden)
+            this.discardHiddenTreasure(treasure);
     }
 }
