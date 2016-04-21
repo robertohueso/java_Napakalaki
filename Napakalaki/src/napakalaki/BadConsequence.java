@@ -100,6 +100,7 @@ public class BadConsequence {
         for(Treasure treasure:h)
             hiddenKind.add(treasure.getType());
         
+        //FIXME Asumo que son excuyentes?
         if(this.specificVisibleTreasures.isEmpty() && this.specificHiddenTreasures.isEmpty()){
             //Ajusta la cantidad de tesoros perdidos.
             if(nVisible > v.size())
