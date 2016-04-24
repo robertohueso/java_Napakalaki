@@ -186,7 +186,8 @@ public class Player {
     }
     
     public boolean validState(){
-        return this.pendingBadConsequence.isEmpty() && this.hiddenTreasures.size() <= 4;
+        return this.pendingBadConsequence == null || 
+                (this.pendingBadConsequence.isEmpty() && this.hiddenTreasures.size() <= 4);
     }
     
     public void initTreasures(){
