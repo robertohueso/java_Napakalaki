@@ -53,8 +53,10 @@ public class Player {
         int nuevo_nivel = this.level - l;
         if(nuevo_nivel >= 1)
             this.level = nuevo_nivel;
-        else
+        else{
             this.level = 1;
+            this.dead = true;
+        }
     }
 
     private void setPendingBadConsequence(BadConsequence b){
@@ -187,8 +189,8 @@ public class Player {
     }
 
     public boolean validState(){
-        return this.pendingBadConsequence == null ||
-                (this.pendingBadConsequence.isEmpty() && this.hiddenTreasures.size() <= 4);
+        return (this.pendingBadConsequence == null || this.pendingBadConsequence.isEmpty()) &&
+               this.hiddenTreasures.size() <= 4;
     }
 
     public void initTreasures(){
@@ -214,7 +216,6 @@ public class Player {
     }
 
     public void discardAllTreasures(){
-        //FIXME Es necesario hacer la copia?
         ArrayList<Treasure> visible = new ArrayList<>(this.visibleTreasures);
         ArrayList<Treasure> hidden = new ArrayList<>(this.hiddenTreasures);
         for(Treasure treasure:visible)
