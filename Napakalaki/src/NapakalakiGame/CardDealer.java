@@ -20,6 +20,7 @@ public class CardDealer {
     private ArrayList<Monster> usedMonsters;
     private ArrayList<Treasure> unusedTreasures;
     private ArrayList<Treasure> usedTreasures;
+    private ArrayList<Cultist> unusedCultists;
 
     //Construccion del objeto
     private CardDealer(){
