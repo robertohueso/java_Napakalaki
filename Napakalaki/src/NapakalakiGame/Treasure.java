@@ -36,6 +36,6 @@ public class Treasure {
 
     @Override
     public String toString(){
-      return this.name + " Tipo:" + type;
+      return this.name + "\n\t Tipo:" + this.type + "\n\t Bonus Nivel: " + this.bonus;
     }
 }

@@ -32,8 +32,8 @@ public class Prize {
     //Devuelve el estado en forma de String
     @Override
     public String toString(){
-        return "Treasures = " + Integer.toString(this.treasures)+ " Levels = " +
-                Integer.toString(this.levels);
+        return "Ganas " + this.treasures + " tesoros y " +
+                this.levels + " niveles.";
     }
     
 }
