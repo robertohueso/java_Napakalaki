@@ -48,9 +48,9 @@ public class Monster {
     //Devuelve el estado en forma de String
     @Override
     public String toString(){
-        return "Name = " + this.name +
-                " Combat Level = " + Integer.toString(this.combatLevel) +
-                " Prize: " + this.prize.toString() +
-                " Bad Consequence: " + this.badConsequence.toString();
+        return "Nombre: " + this.name +
+                "\n\t Combat Level = " + Integer.toString(this.combatLevel) +
+                "\n\t Prize: " + this.prize.toString() +
+                "\n\t Bad Consequence: " + this.badConsequence.toString();
     }
 }
