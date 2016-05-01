@@ -31,6 +31,16 @@ public class Player {
         this.visibleTreasures = new ArrayList<>();
         this.pendingBadConsequence =  null;
     }
+    
+    public Player(Player p){
+        this.name = p.name;
+        this.level = p.level;
+        this.dead = p.dead;
+        //FIXME Superficial debe usar constructor de copia?
+        this.hiddenTreasures = new ArrayList<>(p.hiddenTreasures);
+        this.visibleTreasures = new ArrayList<>(p.visibleTreasures);
+        this.pendingBadConsequence = p.pendingBadConsequence;
+    }
 
     //Metodos privados
     private void bringToLife(){
