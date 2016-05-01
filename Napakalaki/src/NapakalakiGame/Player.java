@@ -223,4 +223,11 @@ public class Player {
         for(Treasure treasure:hidden)
             this.discardHiddenTreasure(treasure);
     }
+    
+    @Override
+    public String toString(){
+        return this.name +
+                "\n\t Nivel: " + this.level +
+                "\n\t Combat Nivel: " + this.getCombatLevel();
+    }
 }
