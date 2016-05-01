@@ -23,7 +23,6 @@ public class Napakalaki {
     
     //Construccion del objeto
     private Napakalaki(){
-        //FIXME Inicializar dealer con getInstance
         this.currentPlayerIndex = -1;
         this.currentMonster = null;
         this.dealer = CardDealer.getInstance();
