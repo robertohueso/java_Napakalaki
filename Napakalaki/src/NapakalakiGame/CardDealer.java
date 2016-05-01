@@ -38,7 +38,7 @@ public class CardDealer {
         this.unusedTreasures.add(new Treasure("¡Sí mi amo!",4,TreasureKind.HELMET));
         this.unusedTreasures.add(new Treasure("Botas de investigación",3,TreasureKind.SHOES));
         this.unusedTreasures.add(new Treasure("Capucha de Cthulhu",3,TreasureKind.HELMET));
-        this.unusedTreasures.add(new Treasure("A prueba de babas verdes",2,TreasureKind.ARMOR));
+        this.unusedTreasures.add(new Treasure("A prueba de babas",2,TreasureKind.ARMOR));
         this.unusedTreasures.add(new Treasure("Botas de lluvia ácida",1, TreasureKind.BOTHHANDS));
         this.unusedTreasures.add(new Treasure("Casco minero", 2, TreasureKind.HELMET));
         this.unusedTreasures.add(new Treasure("Ametralladora Thompson", 4, TreasureKind.BOTHHANDS));
@@ -60,13 +60,12 @@ public class CardDealer {
         this.unusedTreasures.add(new Treasure("Necro-gnomicón", 2, TreasureKind.ONEHAND));
         this.unusedTreasures.add(new Treasure("Necrotelecom", 2, TreasureKind.HELMET));
         this.unusedTreasures.add(new Treasure("Mazo de los antiguos", 3, TreasureKind.ONEHAND));
-        this.unusedTreasures.add(new Treasure("Necro-playboycon", 3, TreasureKind.ONEHAND));
+        this.unusedTreasures.add(new Treasure("Necro-playboycón", 3, TreasureKind.ONEHAND));
         this.unusedTreasures.add(new Treasure("Porra preternatural", 2, TreasureKind.ONEHAND));
         this.unusedTreasures.add(new Treasure("Shogulador", 1, TreasureKind.BOTHHANDS));
-        this.unusedTreasures.add(new Treasure("Varita de atizamiento", 2, TreasureKind.ONEHAND));
+        this.unusedTreasures.add(new Treasure("Varita de atizamiento", 3, TreasureKind.ONEHAND));
         this.unusedTreasures.add(new Treasure("Tentáculo de pega", 2, TreasureKind.HELMET));
         this.unusedTreasures.add(new Treasure("Zapato deja-amigos", 1, TreasureKind.SHOES));
-
     }
 
     private void initMonsterCardDeck(){
@@ -211,7 +210,7 @@ public class CardDealer {
             this.usedTreasures.clear();
             this.shuffleTreasures();
         }
-        
+
         return this.unusedTreasures.remove(0);
     }
 
@@ -221,7 +220,7 @@ public class CardDealer {
             this.usedMonsters.clear();
             this.shuffleMonsters();
         }
-        
+
         return this.unusedMonsters.remove(0);
     }
 

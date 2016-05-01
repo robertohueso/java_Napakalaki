@@ -21,8 +21,8 @@ public class Player {
     private ArrayList<Treasure> hiddenTreasures;
     private ArrayList<Treasure> visibleTreasures;
     private BadConsequence pendingBadConsequence;
-    
-    
+
+
     //Constructor
     public Player(String name){
         this.name = name;
@@ -31,12 +31,12 @@ public class Player {
         this.visibleTreasures = new ArrayList<>();
         this.pendingBadConsequence =  null;
     }
-    
+
     //Metodos privados
     private void bringToLife(){
         this.dead = false;
     }
-    
+
     private int getCombatLevel(){
         int nivel_total = this.level;
         for(Treasure tesoro:this.visibleTreasures){
@@ -44,11 +44,11 @@ public class Player {
         }
         return nivel_total;
     }
-    
+
     private void incrementLevels(int l){
         this.level += l;
     }
-    
+
     private void decrementLevels(int l){
         int nuevo_nivel = this.level - l;
         if(nuevo_nivel >= 1)
@@ -56,16 +56,16 @@ public class Player {
         else
             this.level = 1;
     }
-    
+
     private void setPendingBadConsequence(BadConsequence b){
         this.pendingBadConsequence = b;
     }
-    
+
     private void applyPrize(Monster m){
         int nLevels = m.getLevelsGained();
         this.incrementLevels(nLevels);
         int nTreasures = m.getTreasuresGained();
-        
+
         if(nTreasures > 0){
             CardDealer dealer = CardDealer.getInstance();
             Treasure treasure;
@@ -75,7 +75,7 @@ public class Player {
             }
         }
     }
-    
+
     private void applyBadConsequence(Monster m){
         BadConsequence badConsequence = m.getBadConsequence();
         int nLevels = badConsequence.getLevels();
@@ -84,15 +84,16 @@ public class Player {
                 this.visibleTreasures, this.hiddenTreasures);
         this.setPendingBadConsequence(pendingBad);
     }
-    
+
     private boolean canMakeTreasureVisible(Treasure t){
+        //FIXME Implementar con switch
         //Crea lista de tipos
         ArrayList<TreasureKind> t_kinds = new ArrayList();
         for(Treasure treasure:this.visibleTreasures){
             t_kinds.add(treasure.getType());
         }
         TreasureKind kind = t.getType();
-        
+
         //Comprueba si se puede hacer visible
         if(kind == TreasureKind.ARMOR || kind == TreasureKind.HELMET ||
            kind == TreasureKind.SHOES)
@@ -106,7 +107,7 @@ public class Player {
             }
         }
     }
-    
+
     private int howManyVisibleTreasures(TreasureKind tKind){
         int total = 0;
         for(Treasure tesoro:this.visibleTreasures){
@@ -115,34 +116,34 @@ public class Player {
         }
         return total;
     }
-    
+
     private void dieIfNoTreasures(){
         if(this.visibleTreasures.isEmpty() && this.hiddenTreasures.isEmpty())
             this.dead = true;
     }
-    
+
     //Metodos publicos
     public String getName(){
         return this.name;
     }
-    
+
     public boolean isDead(){
         return this.dead;
     }
-    
+
     public ArrayList<Treasure> getHiddenTreasures(){
         return this.hiddenTreasures;
     }
-    
+
     public ArrayList<Treasure> getVisibleTreasures(){
         return this.visibleTreasures;
     }
-    
+
     public CombatResult combat(Monster m){
         CombatResult combatResult;
         int myLevel = this.getCombatLevel();
         int monsterLevel = m.getCombatLevel();
-        
+
         if(myLevel > monsterLevel){
             this.applyPrize(m);
             if(this.level >= this.MAXLEVEL)
@@ -156,7 +157,7 @@ public class Player {
         }
         return combatResult;
     }
-    
+
     public void makeTreasureVisible(Treasure t){
         boolean canI = this.canMakeTreasureVisible(t);
         if(canI){
@@ -164,32 +165,32 @@ public class Player {
             this.hiddenTreasures.remove(t);
         }
     }
-    
+
     public void discardVisibleTreasure(Treasure t){
         CardDealer dealer = CardDealer.getInstance();
-        
+
         this.visibleTreasures.remove(t);
         dealer.giveTreasureBack(t);
         if(this.pendingBadConsequence != null && !this.pendingBadConsequence.isEmpty())
             this.pendingBadConsequence.substractVisibleTreasure(t);
         this.dieIfNoTreasures();
     }
-    
+
     public void discardHiddenTreasure(Treasure t){
         CardDealer dealer = CardDealer.getInstance();
-        
+
         this.hiddenTreasures.remove(t);
         dealer.giveTreasureBack(t);
         if(this.pendingBadConsequence != null && !this.pendingBadConsequence.isEmpty())
             this.pendingBadConsequence.substractHiddenTreasure(t);
         this.dieIfNoTreasures();
     }
-    
+
     public boolean validState(){
-        return this.pendingBadConsequence == null || 
+        return this.pendingBadConsequence == null ||
                 (this.pendingBadConsequence.isEmpty() && this.hiddenTreasures.size() <= 4);
     }
-    
+
     public void initTreasures(){
         CardDealer dealer = CardDealer.getInstance();
         Dice dice = Dice.getInstance();
@@ -197,7 +198,7 @@ public class Player {
         Treasure treasure = dealer.nextTreasure();
         this.hiddenTreasures.add(treasure);
         int number = dice.nextNumber();
-        
+
         if(number > 1){
             treasure = dealer.nextTreasure();
             this.hiddenTreasures.add(treasure);
@@ -207,11 +208,11 @@ public class Player {
             this.hiddenTreasures.add(treasure);
         }
     }
-    
+
     public int getLevels(){
         return this.level;
     }
-    
+
     public void discardAllTreasures(){
         //FIXME Es necesario hacer la copia?
         ArrayList<Treasure> visible = new ArrayList<>(this.visibleTreasures);
