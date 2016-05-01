@@ -15,6 +15,7 @@ public class Monster {
     private int combatLevel;
     private Prize prize;
     private BadConsequence badConsequence;
+    private int levelChangeAgainstCultistPlayer = 0;
     
     //Constructor
     public Monster(String name, int level, BadConsequence bc, Prize prize){
@@ -24,6 +25,14 @@ public class Monster {
         this.badConsequence = bc;
     }
     
+    public Monster(String name, int level, BadConsequence bc, Prize prize, int IC){
+        this.name = name;
+        this.combatLevel = level;
+        this.prize = prize;
+        this.badConsequence = bc;
+        this.levelChangeAgainstCultistPlayer = IC;
+    }
+    
     //Getters
     public String getName(){
         return this.name;
@@ -31,6 +40,10 @@ public class Monster {
     
     public int getCombatLevel(){
         return this.combatLevel;
+    }
+    
+    public int getCombatLevelChangeAgainstCultistPlayer(){
+        //FIXME Implementar
     }
     
     public BadConsequence getBadConsequence(){
