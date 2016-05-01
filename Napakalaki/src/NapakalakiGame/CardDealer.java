@@ -195,6 +195,10 @@ public class CardDealer {
         prize =  new Prize(1, 1);
         this.unusedMonsters.add(new Monster("Bicefalo", 20, bc, prize));
     }
+    
+    private void initCultistCardDeck(){
+        //FIXME Implementar
+    }
 
     private void shuffleTreasures(){
         Collections.shuffle(this.unusedTreasures);
@@ -202,6 +206,10 @@ public class CardDealer {
 
     private void shuffleMonsters(){
         Collections.shuffle(this.unusedMonsters);
+    }
+    
+    private void shuffleCultists(){
+        Collections.shuffle(this.unusedCultists);
     }
 
     //Metodos publicos
@@ -223,6 +231,10 @@ public class CardDealer {
         }
 
         return this.unusedMonsters.remove(0);
+    }
+    
+    public Cultist nextCultist(){
+        //FIXME Implementar
     }
 
     public void giveTreasureBack(Treasure t){
