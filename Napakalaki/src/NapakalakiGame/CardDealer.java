@@ -291,5 +291,7 @@ public class CardDealer {
         this.shuffleTreasures();
         this.initMonsterCardDeck();
         this.shuffleMonsters();
+        this.initCultistCardDeck();
+        this.shuffleCultists();
     }
 }

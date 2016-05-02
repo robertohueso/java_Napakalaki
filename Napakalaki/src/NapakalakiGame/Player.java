@@ -154,7 +154,7 @@ public class Player {
     public CombatResult combat(Monster m){
         CombatResult combatResult;
         int myLevel = this.getCombatLevel();
-        int monsterLevel = m.getCombatLevel();
+        int monsterLevel = this.getOponentLevel(m);
 
         if(myLevel > monsterLevel){
             this.applyPrize(m);
@@ -165,7 +165,10 @@ public class Player {
         }
         else{
             this.applyBadConsequence(m);
-            combatResult = CombatResult.LOSE;
+            if(this.shouldConvert())
+                combatResult = CombatResult.LOSEANDCONVERT;
+            else
+                combatResult = CombatResult.LOSE;
         }
         return combatResult;
     }
@@ -246,6 +249,6 @@ public class Player {
     }
     
     protected boolean shouldConvert(){
-        
+        return Dice.getInstance().nextNumber() == 1;
     }
 }

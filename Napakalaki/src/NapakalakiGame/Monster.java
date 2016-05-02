@@ -43,7 +43,7 @@ public class Monster {
     }
     
     public int getCombatLevelChangeAgainstCultistPlayer(){
-        //FIXME Implementar
+        return this.getCombatLevel() + this.levelChangeAgainstCultistPlayer;
     }
     
     public BadConsequence getBadConsequence(){

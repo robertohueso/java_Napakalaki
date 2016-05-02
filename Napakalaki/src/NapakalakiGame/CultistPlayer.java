@@ -25,7 +25,10 @@ public class CultistPlayer extends Player{
     
     @Override
     protected int getCombatLevel(){
+        int mitad_combat_level = (int)(0.5*super.getCombatLevel());
+        int levels_cultist = this.myCultistCard.getGainedLevels() * CultistPlayer.getTotalCultistPlayers();
         
+        return super.getCombatLevel() + mitad_combat_level + levels_cultist;
     }
     
     @Override
@@ -35,7 +38,7 @@ public class CultistPlayer extends Player{
     
     @Override
     protected boolean shouldConvert(){
-        
+        return false;
     }
     
     private Treasure giveMeATreasure(){
