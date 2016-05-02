@@ -197,7 +197,12 @@ public class CardDealer {
     }
     
     private void initCultistCardDeck(){
-        //FIXME Implementar
+        this.unusedCultists.add(new Cultist("Agaricus", 1));
+        this.unusedCultists.add(new Cultist("Boletus", 2));
+        this.unusedCultists.add(new Cultist("Daldinia", 1));
+        this.unusedCultists.add(new Cultist("Bolbitius", 2));
+        this.unusedCultists.add(new Cultist("Calvatia", 1));
+        this.unusedCultists.add(new Cultist("Dermoloma", 1));
     }
 
     private void shuffleTreasures(){
