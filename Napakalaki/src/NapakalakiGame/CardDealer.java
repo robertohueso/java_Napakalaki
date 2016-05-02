@@ -194,6 +194,42 @@ public class CardDealer {
                 new ArrayList());
         prize =  new Prize(1, 1);
         this.unusedMonsters.add(new Monster("Bicefalo", 20, bc, prize));
+        
+        //Sectarios
+        bc = new BadConsequence("Pierdes 1 mano visible",
+                0, 1, 0);
+        prize =  new Prize(3, 1);
+        this.unusedMonsters.add(new Monster("El mal indecible impronunciable", 10, bc, prize, -2));
+        
+        bc = new BadConsequence("Pierdes tus tesoros visibles. Jajaja.",
+                0, BadConsequence.MAXTREASURES, 0);
+        prize =  new Prize(2, 1);
+        this.unusedMonsters.add(new Monster("Testigos oculares", 6, bc, prize, 2));
+        
+        bc = new BadConsequence("Hoy no es tu dia de suerte. Mueres.");
+        prize =  new Prize(2, 5);
+        this.unusedMonsters.add(new Monster("El gran Cthulhu", 20, bc, prize, 4));
+        
+        bc = new BadConsequence("Tu gobierno te recorta 2 niveles.",
+                2, 0, 0);
+        prize =  new Prize(2, 1);
+        this.unusedMonsters.add(new Monster("Serpiente Politico", 8, bc, prize, -2));
+        
+        bc = new BadConsequence("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas.",
+                0, new ArrayList(Arrays.asList(TreasureKind.HELMET, TreasureKind.ARMOR)),
+                   new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS, TreasureKind.ONEHAND, TreasureKind.ONEHAND)) );
+        prize =  new Prize(1, 1);
+        this.unusedMonsters.add(new Monster("Felpuggoth", 2, bc, prize, 5));
+        
+        bc = new BadConsequence("Pierdes 2 niveles",
+                2, 0, 0);
+        prize =  new Prize(4, 2);
+        this.unusedMonsters.add(new Monster("Shoggoth", 16, bc, prize, -4));
+        
+        bc = new BadConsequence("Pintalabios negro. Pierdes 2 niveles.",
+                2, 0, 0);
+        prize =  new Prize(1, 1);
+        this.unusedMonsters.add(new Monster("Lolitagooth", 2, bc, prize, 3));
     }
     
     private void initCultistCardDeck(){
