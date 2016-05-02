@@ -18,4 +18,31 @@ public class CultistPlayer extends Player{
         CultistPlayer.totalCultistPlayers++;
         this.myCultistCard = c;
     }
+    
+    public static int getTotalCultistPlayers(){
+        return CultistPlayer.totalCultistPlayers;
+    }
+    
+    @Override
+    protected int getCombatLevel(){
+        
+    }
+    
+    @Override
+    protected int getOponentLevel(Monster m){
+        
+    }
+    
+    @Override
+    protected boolean shouldConvert(){
+        
+    }
+    
+    private Treasure giveMeATreasure(){
+        
+    }
+    
+    private boolean canYouGiveMeATreasure(){
+        
+    }
 }

@@ -47,7 +47,7 @@ public class Player {
         this.dead = false;
     }
 
-    private int getCombatLevel(){
+    protected int getCombatLevel(){
         int nivel_total = this.level;
         for(Treasure tesoro:this.visibleTreasures){
             nivel_total += tesoro.getBonus();
@@ -239,5 +239,13 @@ public class Player {
         return this.name +
                 "\n\t Nivel: " + this.level +
                 "\n\t Combat Nivel: " + this.getCombatLevel();
+    }
+    
+    protected int getOponentLevel(Monster m){
+        
+    }
+    
+    protected boolean shouldConvert(){
+        
     }
 }
