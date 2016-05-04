@@ -59,12 +59,20 @@ public class GameTester {
             case LOSE :
               System.out.println ("\n\n Has perdido el combate, te toca cumplir el mal rollo");
               break;
+            case LOSEANDCONVERT :
+              System.out.println ("\n\n Has perdido el combate, y te has convertido en sectario");
+              System.out.println ("\n No obstante, tienes que cumplir el mal rollo");
+              currentPlayer = game.getCurrentPlayer();
+              break;
           }
           if (combatResult != CombatResult.WINGAME) {
             do { // Hasta que se avance de turno 
               System.out.println ("******* ******* ******* ******* ******* ******* *******");
               System.out.println ("\n\n Turno de: " + currentPlayer.toString());
-              command = getCommandAfterFighting();
+              if (currentPlayer.validState())
+                command = getCommandAfterFighting();
+              else
+                command = getCommandAfterFightingPendingBC();
               command = processCommand (command, currentPlayer);
             } while (command != Command.Exit && command != Command.NextTurnAllowed);
           } else {
@@ -80,6 +88,15 @@ public class GameTester {
       Command.ShowVisibleTreasure,    Command.ShowHiddenTreasure, 
       Command.DiscardVisibleTreasure, Command.DiscardHiddenTreasure, Command.DiscardAll,
       Command.MakeTreasureVisible,
+      Command.NextTurn, Command.Exit};
+    
+    return manageMenu ("Opciones antes de pasar turno", commands);
+  }
+
+  private Command getCommandAfterFightingPendingBC () {
+    Command commands[] = {Command.ShowMonster, 
+      Command.ShowVisibleTreasure,    Command.ShowHiddenTreasure, 
+      Command.DiscardVisibleTreasure, Command.DiscardHiddenTreasure, Command.DiscardAll,
       Command.NextTurn, Command.Exit};
     
     return manageMenu ("Opciones antes de pasar turno", commands);
