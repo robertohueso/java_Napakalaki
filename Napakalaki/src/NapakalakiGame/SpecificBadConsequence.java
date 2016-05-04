@@ -22,4 +22,12 @@ public class SpecificBadConsequence extends BadConsequence{
         this.specificVisibleTreasures = new ArrayList(tVisible);
         this.specificHiddenTreasures = new ArrayList(tHidden);
     }
+    
+    public ArrayList<TreasureKind> getSpecificVisibleTreasures(){
+        return (ArrayList<TreasureKind>) this.specificVisibleTreasures.clone();
+    }
+    
+    public ArrayList<TreasureKind> getSpecificHiddenTreasures(){
+        return (ArrayList<TreasureKind>) this.specificHiddenTreasures.clone();
+    }
 }

@@ -19,4 +19,12 @@ public class NumericBadConsequence extends BadConsequence{
         this.nVisibleTreasures = nVisible;
         this.nHiddenTreasures = nHidden;
     }
+    
+    public int getNVisibleTreasures(){
+        return this.nVisibleTreasures;
+    }
+    
+    public int getNHiddenTreasures(){
+        return this.nHiddenTreasures;
+    }
 }

@@ -67,22 +67,6 @@ public class BadConsequence {
         return this.levels;
     }
     
-    public int getNVisibleTreasures(){
-        return this.nVisibleTreasures;
-    }
-    
-    public int getNHiddenTreasures(){
-        return this.nHiddenTreasures;
-    }
-    
-    public ArrayList<TreasureKind> getSpecificVisibleTreasures(){
-        return (ArrayList<TreasureKind>) this.specificVisibleTreasures.clone();
-    }
-    
-    public ArrayList<TreasureKind> getSpecificHiddenTreasures(){
-        return (ArrayList<TreasureKind>) this.specificHiddenTreasures.clone();
-    }
-    
     public void substractVisibleTreasure(Treasure t){
         this.specificVisibleTreasures.remove(t.getType());
     }
