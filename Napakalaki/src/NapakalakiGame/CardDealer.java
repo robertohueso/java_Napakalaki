@@ -28,6 +28,7 @@ public class CardDealer {
         this.usedMonsters = new ArrayList<>();
         this.unusedTreasures = new ArrayList<>();
         this.usedTreasures = new ArrayList<>();
+        this.unusedCultists = new ArrayList<>();
     }
 
     public static CardDealer getInstance(){
