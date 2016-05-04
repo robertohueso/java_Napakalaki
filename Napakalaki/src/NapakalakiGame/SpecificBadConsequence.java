@@ -38,4 +38,9 @@ public class SpecificBadConsequence extends BadConsequence{
     public void substractHiddenTreasure(Treasure t){
         this.specificHiddenTreasures.remove(t.getType());
     }
+    
+    @Override
+    public boolean isEmpty(){
+        return this.specificVisibleTreasures.isEmpty() && this.specificHiddenTreasures.isEmpty();
+    }
 }

@@ -27,4 +27,9 @@ public class NumericBadConsequence extends BadConsequence{
     public int getNHiddenTreasures(){
         return this.nHiddenTreasures;
     }
+    
+    @Override
+    public boolean isEmpty(){
+        return this.nVisibleTreasures == 0 && this.nHiddenTreasures == 0;
+    }
 }

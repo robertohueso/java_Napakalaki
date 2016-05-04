@@ -12,7 +12,7 @@ import java.util.Collections;
  *
  * @author roberto
  */
-public class BadConsequence {
+abstract public class BadConsequence {
     //Datos miembro
     static final int MAXTREASURES = 10;
     private String text;
@@ -55,13 +55,7 @@ public class BadConsequence {
         this.specificHiddenTreasures = new ArrayList();
     }
     
-    //Getters basicos
-    public boolean isEmpty(){
-        return this.nVisibleTreasures == 0 &&
-               this.nHiddenTreasures == 0 &&
-               this.specificVisibleTreasures.isEmpty() &&
-               this.specificHiddenTreasures.isEmpty();
-    }
+    abstract public boolean isEmpty();
     
     public int getLevels(){
         return this.levels;
