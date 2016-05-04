@@ -33,6 +33,10 @@ abstract public class BadConsequence {
         return this.text;
     }
     
+    abstract public void substractVisibleTreasure(Treasure t);
+    
+    abstract public void substractHiddenTreasure(Treasure t);
+    
     abstract public BadConsequence adjustToFitTreasureList(ArrayList<Treasure> v, ArrayList<Treasure> h);
     
     //Devuelve el estado en forma de String

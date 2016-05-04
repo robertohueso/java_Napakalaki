@@ -31,6 +31,16 @@ public class NumericBadConsequence extends BadConsequence{
     }
     
     @Override
+    public void substractVisibleTreasure(Treasure t){
+        this.nVisibleTreasures--;
+    }
+    
+    @Override
+    public void substractHiddenTreasure(Treasure t){
+        this.nHiddenTreasures--;
+    }
+    
+    @Override
     public boolean isEmpty(){
         return this.nVisibleTreasures == 0 && this.nHiddenTreasures == 0;
     }

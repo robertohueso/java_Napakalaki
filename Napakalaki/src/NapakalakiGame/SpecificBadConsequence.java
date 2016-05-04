@@ -32,10 +32,12 @@ public class SpecificBadConsequence extends BadConsequence{
         return (ArrayList<TreasureKind>) this.specificHiddenTreasures.clone();
     }
     
+    @Override
     public void substractVisibleTreasure(Treasure t){
         this.specificVisibleTreasures.remove(t.getType());
     }
     
+    @Override
     public void substractHiddenTreasure(Treasure t){
         this.specificHiddenTreasures.remove(t.getType());
     }
