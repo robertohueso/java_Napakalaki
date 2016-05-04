@@ -30,7 +30,11 @@ abstract public class BadConsequence {
         return this.levels;
     }
     
-    public BadConsequence adjustToFitTreasureList(ArrayList<Treasure> v, ArrayList<Treasure> h){
+    public String getText(){
+        return this.text;
+    }
+    
+    abstract public BadConsequence adjustToFitTreasureList(ArrayList<Treasure> v, ArrayList<Treasure> h){
         ArrayList<TreasureKind> visibleKind = new ArrayList<>();
         ArrayList<TreasureKind> hiddenKind = new ArrayList<>();
         ArrayList<TreasureKind> visibleToLose = new ArrayList<>();
@@ -69,6 +73,6 @@ abstract public class BadConsequence {
     //Devuelve el estado en forma de String
     @Override
     public String toString(){
-        return this.text;
+        return this.getText();
     }
 }
