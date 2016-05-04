@@ -17,42 +17,11 @@ abstract public class BadConsequence {
     static final int MAXTREASURES = 10;
     private String text;
     private int levels;
-    private int nVisibleTreasures;
-    private int nHiddenTreasures;
-    private ArrayList<TreasureKind> specificHiddenTreasures;
-    private ArrayList<TreasureKind> specificVisibleTreasures;
-    //Constructores
     
+    //Constructor
     public BadConsequence(String text, int levels){
         this.text = text;
         this.levels = levels;
-    }
-    public BadConsequence(String text, int levels, int nVisible, int nHidden){
-        this.text = text;
-        this.levels = levels;
-        this.nVisibleTreasures = nVisible;
-        this.nHiddenTreasures = nHidden;
-        this.specificVisibleTreasures = new ArrayList();
-        this.specificHiddenTreasures = new ArrayList();
-    }
-    
-    public BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible
-            , ArrayList<TreasureKind> tHidden){
-        this.text = text;
-        this.levels = levels;
-        this.specificVisibleTreasures = new ArrayList(tVisible);
-        this.specificHiddenTreasures = new ArrayList(tHidden);
-        this.nHiddenTreasures = 0;
-        this.nVisibleTreasures = 0;
-    }
-    
-    public BadConsequence(String text){
-        this.text = text;
-        this.levels = 10;
-        this.nVisibleTreasures = BadConsequence.MAXTREASURES;
-        this.nHiddenTreasures = BadConsequence.MAXTREASURES;
-        this.specificVisibleTreasures = new ArrayList();
-        this.specificHiddenTreasures = new ArrayList();
     }
     
     abstract public boolean isEmpty();
