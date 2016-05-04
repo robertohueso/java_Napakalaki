@@ -12,6 +12,14 @@ import java.util.ArrayList;
  * @author roberto
  */
 public class SpecificBadConsequence extends BadConsequence{
-    //Constructor
+    private ArrayList<TreasureKind> specificHiddenTreasures;
+    private ArrayList<TreasureKind> specificVisibleTreasures;
     
+    //Constructor
+    public SpecificBadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible
+                                 , ArrayList<TreasureKind> tHidden){
+        super(text, levels);
+        this.specificVisibleTreasures = new ArrayList(tVisible);
+        this.specificHiddenTreasures = new ArrayList(tHidden);
+    }
 }

@@ -10,5 +10,13 @@ package NapakalakiGame;
  * @author roberto
  */
 public class NumericBadConsequence extends BadConsequence{
+    private int nVisibleTreasures;
+    private int nHiddenTreasures;
+    
     //Constructor
+    public NumericBadConsequence(String text, int levels, int nVisible, int nHidden){
+        super(text, levels);
+        this.nVisibleTreasures = nVisible;
+        this.nHiddenTreasures = nHidden;
+    }
 }

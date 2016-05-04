@@ -22,6 +22,11 @@ public class BadConsequence {
     private ArrayList<TreasureKind> specificHiddenTreasures;
     private ArrayList<TreasureKind> specificVisibleTreasures;
     //Constructores
+    
+    public BadConsequence(String text, int levels){
+        this.text = text;
+        this.levels = levels;
+    }
     public BadConsequence(String text, int levels, int nVisible, int nHidden){
         this.text = text;
         this.levels = levels;
