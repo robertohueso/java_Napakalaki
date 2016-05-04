@@ -40,12 +40,4 @@ public class CultistPlayer extends Player{
     protected boolean shouldConvert(){
         return false;
     }
-    
-    private Treasure giveMeATreasure(){
-        
-    }
-    
-    private boolean canYouGiveMeATreasure(){
-        
-    }
 }

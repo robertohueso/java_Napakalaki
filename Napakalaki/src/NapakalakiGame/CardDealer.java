@@ -275,7 +275,7 @@ public class CardDealer {
     }
     
     public Cultist nextCultist(){
-        //FIXME Implementar
+        return this.unusedCultists.remove(0);
     }
 
     public void giveTreasureBack(Treasure t){
