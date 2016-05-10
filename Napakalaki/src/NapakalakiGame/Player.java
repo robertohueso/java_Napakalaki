@@ -115,7 +115,8 @@ public class Player {
                 return !(t_kinds.contains(TreasureKind.ONEHAND)) &&
                         !(t_kinds.contains(TreasureKind.BOTHHANDS));
             else{
-                return Collections.frequency(t_kinds, kind) <= 1;
+                return Collections.frequency(t_kinds, kind) <= 1 &&
+                        !(t_kinds.contains(TreasureKind.BOTHHANDS));
             }
         }
     }
