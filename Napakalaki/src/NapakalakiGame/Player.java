@@ -31,12 +31,11 @@ public class Player {
         this.visibleTreasures = new ArrayList<>();
         this.pendingBadConsequence =  null;
     }
-    
+
     public Player(Player p){
         this.name = p.name;
         this.level = p.level;
         this.dead = p.dead;
-        //FIXME Superficial debe usar constructor de copia?
         this.hiddenTreasures = new ArrayList<>(p.hiddenTreasures);
         this.visibleTreasures = new ArrayList<>(p.visibleTreasures);
         this.pendingBadConsequence = p.pendingBadConsequence;
@@ -98,7 +97,6 @@ public class Player {
     }
 
     private boolean canMakeTreasureVisible(Treasure t){
-        //FIXME Implementar con switch
         //Crea lista de tipos
         ArrayList<TreasureKind> t_kinds = new ArrayList();
         for(Treasure treasure:this.visibleTreasures){
@@ -237,18 +235,18 @@ public class Player {
         for(Treasure treasure:hidden)
             this.discardHiddenTreasure(treasure);
     }
-    
+
     @Override
     public String toString(){
         return this.name +
                 "\n\t Nivel: " + this.level +
                 "\n\t Combat Nivel: " + this.getCombatLevel();
     }
-    
+
     protected int getOponentLevel(Monster m){
         return m.getCombatLevel();
     }
-    
+
     protected boolean shouldConvert(){
         return Dice.getInstance().nextNumber() == 6;
     }
