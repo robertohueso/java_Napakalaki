@@ -159,7 +159,7 @@ public class Player {
 
         if(myLevel > monsterLevel){
             this.applyPrize(m);
-            if(this.level >= this.MAXLEVEL)
+            if(this.level >= Player.MAXLEVEL)
                 combatResult = CombatResult.WINGAME;
             else
                 combatResult = CombatResult.WIN;
@@ -250,6 +250,6 @@ public class Player {
     }
     
     protected boolean shouldConvert(){
-        return Dice.getInstance().nextNumber() == 1;
+        return Dice.getInstance().nextNumber() == 6;
     }
 }
