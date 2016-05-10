@@ -40,4 +40,10 @@ public class CultistPlayer extends Player{
     protected boolean shouldConvert(){
         return false;
     }
+    
+    @Override
+    public String toString(){
+        return super.toString() +
+                "\n\t Sectario: " + this.myCultistCard.toString();
+    }
 }

@@ -21,4 +21,9 @@ public class Cultist {
     public int getGainedLevels(){
         return this.gainedLevels;
     }
+    
+    @Override
+    public String toString(){
+        return this.name + " ---- Gana: " + this.gainedLevels + " niveles.";
+    }
 }
