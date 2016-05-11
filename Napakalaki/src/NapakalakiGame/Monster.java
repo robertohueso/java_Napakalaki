@@ -11,11 +11,13 @@ package NapakalakiGame;
  */
 public class Monster {
     //Datos miembro
-    private String name;
-    private int combatLevel;
-    private Prize prize;
-    private BadConsequence badConsequence;
-    private int levelChangeAgainstCultistPlayer = 0;
+    //EXAMEN
+    protected String name;
+    protected int combatLevel;
+    protected Prize prize;
+    protected BadConsequence badConsequence;
+    protected int levelChangeAgainstCultistPlayer = 0;
+    //FIN EXAMEN
     
     //Constructor
     public Monster(String name, int level, BadConsequence bc, Prize prize){

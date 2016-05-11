@@ -246,6 +246,12 @@ public class Player {
     protected int getOponentLevel(Monster m){
         return m.getCombatLevel();
     }
+    
+    //EXAMEN    
+    protected int getOponentLevel(GoodMonster m){
+        return m.getCombatLevel(this);
+    }
+    //FIN EXAMEN
 
     protected boolean shouldConvert(){
         return Dice.getInstance().nextNumber() == 6;

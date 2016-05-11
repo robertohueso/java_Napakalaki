@@ -36,6 +36,13 @@ public class CultistPlayer extends Player{
         return m.getCombatLevelChangeAgainstCultistPlayer();
     }
     
+    //EXAMEN
+    @Override
+    protected int getOponentLevel(GoodMonster m){
+        return m.getCombatLevelChangeAgainstCultistPlayer(this);
+    }
+    //FIN EXAMEN
+    
     @Override
     protected boolean shouldConvert(){
         return false;
