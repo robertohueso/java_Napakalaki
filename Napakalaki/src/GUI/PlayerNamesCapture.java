@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 /**
@@ -20,6 +22,12 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
     public PlayerNamesCapture(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e){
+                System.exit(0);
+            }
+        });
     }
 
     /**
