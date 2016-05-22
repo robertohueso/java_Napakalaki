@@ -47,6 +47,9 @@ public class NapakalakiView extends javax.swing.JFrame {
 
         player = new javax.swing.JPanel();
         monster = new javax.swing.JPanel();
+        meetMonster = new javax.swing.JButton();
+        combat = new javax.swing.JButton();
+        nextTurn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +79,22 @@ public class NapakalakiView extends javax.swing.JFrame {
             .addGap(0, 129, Short.MAX_VALUE)
         );
 
+        meetMonster.setText("Meet the monster");
+
+        combat.setText("Combat");
+        combat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combatActionPerformed(evt);
+            }
+        });
+
+        nextTurn.setText("Next Turn");
+        nextTurn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextTurnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,6 +103,13 @@ public class NapakalakiView extends javax.swing.JFrame {
                 .addComponent(player, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(monster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(meetMonster)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(combat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nextTurn)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,15 +117,30 @@ public class NapakalakiView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(monster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(player, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 167, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(meetMonster)
+                    .addComponent(combat)
+                    .addComponent(nextTurn)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void combatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combatActionPerformed
+
+    private void nextTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTurnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextTurnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton combat;
+    private javax.swing.JButton meetMonster;
     private javax.swing.JPanel monster;
+    private javax.swing.JButton nextTurn;
     private javax.swing.JPanel player;
     // End of variables declaration//GEN-END:variables
 }

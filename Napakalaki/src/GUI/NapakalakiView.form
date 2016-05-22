@@ -23,10 +23,18 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <Component id="player" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="monster" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <Component id="meetMonster" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="combat" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="nextTurn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -37,7 +45,12 @@
                   <Component id="monster" max="32767" attributes="0"/>
                   <Component id="player" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="167" max="32767" attributes="0"/>
+              <EmptySpace pref="137" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="meetMonster" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="combat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nextTurn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,5 +100,26 @@
         </DimensionLayout>
       </Layout>
     </Container>
+    <Component class="javax.swing.JButton" name="meetMonster">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Meet the monster"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="combat">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Combat"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combatActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="nextTurn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Next Turn"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextTurnActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
