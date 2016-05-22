@@ -26,8 +26,8 @@ public class PlayerView extends javax.swing.JPanel {
     }
     
     public void setPlayer(Player player){
-        this.playerModel = (Player) player;
-        name.setText(playerModel.getName());
+        this.playerModel = player;
+        name.setText(player.getName());
         level.setText(Integer.toString(playerModel.getLevels()));
         combat_level.setText(Integer.toString(playerModel.getCombatLevel()));
         if(player instanceof CultistPlayer)

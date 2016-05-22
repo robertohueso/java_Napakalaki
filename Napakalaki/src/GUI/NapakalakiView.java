@@ -13,10 +13,19 @@ import NapakalakiGame.Napakalaki;
  */
 public class NapakalakiView extends javax.swing.JFrame {
     
-    protected static Napakalaki napakalakiModel;
+    private Napakalaki napakalakiModel;
     
     public void setNapakalaki(Napakalaki napakalaki){
         this.napakalakiModel = napakalaki;
+        PlayerView aPlayer = new PlayerView();
+        MonsterView aMonster = new MonsterView();
+        aPlayer.setPlayer(this.napakalakiModel.getCurrentPlayer());
+        aMonster.setMonster(this.napakalakiModel.getCurrentMonster());
+        aPlayer.setVisible(true);
+        aMonster.setVisible(true);
+        player.add(aPlayer);
+        monster.add(aMonster);
+        repaint();
     }
 
     /**
@@ -25,6 +34,7 @@ public class NapakalakiView extends javax.swing.JFrame {
     public NapakalakiView() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,17 +45,53 @@ public class NapakalakiView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        player = new javax.swing.JPanel();
+        monster = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        player.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout playerLayout = new javax.swing.GroupLayout(player);
+        player.setLayout(playerLayout);
+        playerLayout.setHorizontalGroup(
+            playerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 257, Short.MAX_VALUE)
+        );
+        playerLayout.setVerticalGroup(
+            playerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        monster.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout monsterLayout = new javax.swing.GroupLayout(monster);
+        monster.setLayout(monsterLayout);
+        monsterLayout.setHorizontalGroup(
+            monsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 219, Short.MAX_VALUE)
+        );
+        monsterLayout.setVerticalGroup(
+            monsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 129, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(player, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(monster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(monster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(player, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 167, Short.MAX_VALUE))
         );
 
         pack();
@@ -53,5 +99,7 @@ public class NapakalakiView extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel monster;
+    private javax.swing.JPanel player;
     // End of variables declaration//GEN-END:variables
 }
