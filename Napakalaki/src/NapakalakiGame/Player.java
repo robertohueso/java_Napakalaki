@@ -47,7 +47,7 @@ public class Player {
         this.dead = false;
     }
 
-    protected int getCombatLevel(){
+    public int getCombatLevel(){
         int nivel_total = this.level;
         for(Treasure tesoro:this.visibleTreasures){
             nivel_total += tesoro.getBonus();
