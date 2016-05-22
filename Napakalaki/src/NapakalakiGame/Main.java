@@ -5,23 +5,29 @@
  */
 package NapakalakiGame;
 
-import GUI.Dice;
-import GUI.NapakalakiView;
+import GUI.*;
+import java.util.ArrayList;
 
 /**
  *
  * @author roberto
  */
 public class Main {
-    protected static Napakalaki game;
-    protected static NapakalakiView napakalakiView;
+    private static Napakalaki game;
+    private static NapakalakiView napakalakiView;
+    private static ArrayList<String> names;
     
     public static void main(String[] args){
-        Main.game = Napakalaki.getInstance();
-        Main.napakalakiView = new NapakalakiView();
+        
+        game = Napakalaki.getInstance();
+        napakalakiView = new NapakalakiView();
         
         Dice.createInstance(napakalakiView);
         napakalakiView.setNapakalaki(game);
+        
+        PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView, true);
+        names = namesCapture.getNames();
+        game.initGame(names);
         napakalakiView.setVisible(true);
         
     }

@@ -16,11 +16,9 @@ import java.util.ArrayList;
 public class PlayerNamesCapture extends javax.swing.JDialog {
     private ArrayList<String> names;
     
-    /**
-     * Creates new form PlayerNamesCapture
-     */
     public PlayerNamesCapture(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        names = new ArrayList<>();
         initComponents();
         this.addWindowListener(new WindowAdapter() {
             @Override
@@ -56,16 +54,17 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
 
         jLabel3.setText("Player 3");
 
-        name1.setText("jTextField1");
         name1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name1ActionPerformed(evt);
             }
         });
 
-        name2.setText("jTextField1");
-
-        name3.setText("jTextField1");
+        name2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name2ActionPerformed(evt);
+            }
+        });
 
         cancel.setText("Cancel");
         cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -87,24 +86,21 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 258, Short.MAX_VALUE))
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(name3))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(cancel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
                 .addComponent(play))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(name1))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(name2))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,15 +130,19 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
     }//GEN-LAST:event_cancelActionPerformed
 
     private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
-        this.names.add(name1.getText());
-        this.names.add(name2.getText());
-        this.names.add(name3.getText());
+        names.add(name1.getText());
+        names.add(name2.getText());
+        names.add(name3.getText());
         this.dispose();
     }//GEN-LAST:event_playActionPerformed
 
     private void name1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_name1ActionPerformed
+
+    private void name2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name2ActionPerformed
 
     
     public ArrayList<String> getNames(){
