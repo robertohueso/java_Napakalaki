@@ -27,24 +27,26 @@ public class PlayerView extends javax.swing.JPanel {
     
     public void setPlayer(Player player){
         this.playerModel = player;
-        name.setText(player.getName());
-        level.setText(Integer.toString(playerModel.getLevels()));
-        combat_level.setText(Integer.toString(playerModel.getCombatLevel()));
-        if(player instanceof CultistPlayer)
-            cultist_bool.setText("Si");
-        else
-            cultist_bool.setText("No");
-        cultist_amount.setText(Integer.toString(CultistPlayer.getTotalCultistPlayers()));
-        this.fillTreasurePanel(hiddenTreasures, playerModel.getHiddenTreasures());
-        this.fillTreasurePanel(visibleTreasures, playerModel.getVisibleTreasures());
-        if(player.getPendingBadConsequence() != null){
-            PendingBadConsequenceView aPBC = new PendingBadConsequenceView();
-            aPBC.setBadConsequence(player.getPendingBadConsequence());
-            aPBC.setVisible(true);
-            pendingBC.add(aPBC);
+        if(player != null){
+            name.setText(player.getName());
+            level.setText(Integer.toString(playerModel.getLevels()));
+            combat_level.setText(Integer.toString(playerModel.getCombatLevel()));
+            if(player instanceof CultistPlayer)
+                cultist_bool.setText("Si");
+            else
+                cultist_bool.setText("No");
+            cultist_amount.setText(Integer.toString(CultistPlayer.getTotalCultistPlayers()));
+            this.fillTreasurePanel(hiddenTreasures, playerModel.getHiddenTreasures());
+            this.fillTreasurePanel(visibleTreasures, playerModel.getVisibleTreasures());
+            if(player.getPendingBadConsequence() != null){
+                PendingBadConsequenceView aPBC = new PendingBadConsequenceView();
+                aPBC.setBadConsequence(player.getPendingBadConsequence());
+                aPBC.setVisible(true);
+                pendingBC.add(aPBC);
+            }
+            repaint();
+            revalidate();
         }
-        repaint();
-        revalidate();
     }
     
     private void fillTreasurePanel(JPanel aPanel, ArrayList<Treasure> aList){

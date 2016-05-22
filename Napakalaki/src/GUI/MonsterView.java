@@ -21,19 +21,20 @@ public class MonsterView extends javax.swing.JPanel {
         initComponents();
     }
     
-    public void setMonster(Monster m){
-        PrizeView aPrize = new PrizeView();
-        BadConsequenceView aBc = new BadConsequenceView();
-        
+    public void setMonster(Monster m){        
         this.monsterModel = m;
-        name.setText(m.getName());
-        level.setText(Integer.toString(m.getCombatLevel()));
-        aPrize.setPrize(m.getPrize());
-        aBc.setBadConsequence(m.getBadConsequence());
-        aPrize.setVisible(true);
-        aBc.setVisible(true);
+        if(m != null){
+            PrizeView aPrize = new PrizeView();
+            BadConsequenceView aBc = new BadConsequenceView();
+            name.setText(m.getName());
+            level.setText(Integer.toString(m.getCombatLevel()));
+            aPrize.setPrize(m.getPrize());
+            aBc.setBadConsequence(m.getBadConsequence());
+            aPrize.setVisible(true);
+            aBc.setVisible(true);
         
         repaint();
+        }
     }
 
     /**
