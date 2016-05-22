@@ -21,15 +21,12 @@ public class TreasureView extends javax.swing.JPanel {
         initComponents();
     }
     
-    private void updateView(){
+    public void setTreasure(Treasure treasure){
+        this.treasureModel = treasure;
         name.setText(treasureModel.getName());
         bonus.setText(Integer.toString(treasureModel.getBonus()));
         kind.setText(treasureModel.getType().toString());
-    }
-    
-    public void setTreasure(Treasure treasure){
-        this.treasureModel = treasure;
-        this.updateView();
+        repaint();
     }
 
     /**
