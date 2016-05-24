@@ -6,6 +6,7 @@
 package GUI;
 
 import NapakalakiGame.Treasure;
+import java.awt.Color;
 
 /**
  *
@@ -13,12 +14,22 @@ import NapakalakiGame.Treasure;
  */
 public class TreasureView extends javax.swing.JPanel {
     Treasure treasureModel;
+    boolean selected;
 
     /**
      * Creates new form TreasureView
      */
     public TreasureView() {
         initComponents();
+        this.selected = false;
+    }
+    
+    public boolean isSelected(){
+        return this.selected;
+    }
+    
+    public Treasure getTreasure(){
+        return this.treasureModel;
     }
     
     public void setTreasure(Treasure treasure){
@@ -45,6 +56,12 @@ public class TreasureView extends javax.swing.JPanel {
         name = new javax.swing.JLabel();
         bonus = new javax.swing.JLabel();
         kind = new javax.swing.JLabel();
+
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel1.setText("Nombre");
@@ -106,6 +123,19 @@ public class TreasureView extends javax.swing.JPanel {
                 .addGap(0, 216, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        this.setBackground(Color.GREEN);
+        if(this.selected == true){
+            this.selected = false;
+            this.setOpaque(false);
+        }
+        else{
+            this.selected = true;
+            this.setOpaque(false);
+        }
+        repaint();
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
