@@ -34,26 +34,24 @@ public class PlayerView extends javax.swing.JPanel {
     
     public void setPlayer(Player player){
         this.playerModel = player;
-        if(player != null){
-            name.setText(player.getName());
-            level.setText(Integer.toString(playerModel.getLevels()));
-            combat_level.setText(Integer.toString(playerModel.getCombatLevel()));
-            if(player instanceof CultistPlayer)
-                cultist_bool.setText("Si");
-            else
-                cultist_bool.setText("No");
-            cultist_amount.setText(Integer.toString(CultistPlayer.getTotalCultistPlayers()));
-            this.fillTreasurePanel(hiddenTreasures, playerModel.getHiddenTreasures());
-            this.fillTreasurePanel(visibleTreasures, playerModel.getVisibleTreasures());
-            if(player.getPendingBadConsequence() != null){
-                PendingBadConsequenceView aPBC = new PendingBadConsequenceView();
-                aPBC.setBadConsequence(player.getPendingBadConsequence());
-                aPBC.setVisible(true);
-                pendingBC.add(aPBC);
-            }
-            repaint();
-            revalidate();
+        name.setText(player.getName());
+        level.setText(Integer.toString(playerModel.getLevels()));
+        combat_level.setText(Integer.toString(playerModel.getCombatLevel()));
+        if(player instanceof CultistPlayer)
+            cultist_bool.setText("Si");
+        else
+            cultist_bool.setText("No");
+        cultist_amount.setText(Integer.toString(CultistPlayer.getTotalCultistPlayers()));
+        this.fillTreasurePanel(hiddenTreasures, playerModel.getHiddenTreasures());
+        this.fillTreasurePanel(visibleTreasures, playerModel.getVisibleTreasures());
+        if(player.getPendingBadConsequence() != null){
+            PendingBadConsequenceView aPBC = new PendingBadConsequenceView();
+            aPBC.setBadConsequence(player.getPendingBadConsequence());
+            aPBC.setVisible(true);
+            pendingBC.add(aPBC);
         }
+        repaint();
+        revalidate();
     }
     
     private ArrayList<Treasure> getSelectedTreasures(JPanel aPanel){
@@ -174,29 +172,18 @@ public class PlayerView extends javax.swing.JPanel {
 
         pendingBC.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout pendingBCLayout = new javax.swing.GroupLayout(pendingBC);
-        pendingBC.setLayout(pendingBCLayout);
-        pendingBCLayout.setHorizontalGroup(
-            pendingBCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        pendingBCLayout.setVerticalGroup(
-            pendingBCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 36, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(makeVisible)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(discardTreasures)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(discardAllTreasures)
-                .addContainerGap())
+                .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
