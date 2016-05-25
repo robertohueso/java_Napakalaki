@@ -36,10 +36,15 @@
               <Component id="jSeparator1" min="-2" pref="6" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="prize" max="32767" attributes="0"/>
                   <Component id="level" pref="291" max="32767" attributes="0"/>
                   <Component id="name" alignment="0" max="32767" attributes="0"/>
-                  <Component id="badConsequence" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="prize" alignment="0" max="32767" attributes="0"/>
+                          <Component id="badConsequence" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -59,14 +64,14 @@
                       <Component id="name" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="level" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="prize" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <Component id="badConsequence" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="badConsequence" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="202" max="32767" attributes="0"/>
           </Group>
