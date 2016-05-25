@@ -6,6 +6,7 @@
 package GUI;
 
 import NapakalakiGame.Napakalaki;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -149,9 +150,10 @@ public class NapakalakiView extends javax.swing.JFrame {
             monster.removeAll();
             player.removeAll();
             combat_result.setText("");
+            this.setNapakalaki(napakalakiModel);
+        }else{
+            JOptionPane.showMessageDialog(this, "Cumple tu mal rollo!");
         }
-        
-        this.setNapakalaki(napakalakiModel);
     }//GEN-LAST:event_nextTurnActionPerformed
 
     private void meetMonsterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meetMonsterActionPerformed
