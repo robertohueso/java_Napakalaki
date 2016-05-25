@@ -271,7 +271,8 @@ public class PlayerView extends javax.swing.JPanel {
     }//GEN-LAST:event_discardTreasuresActionPerformed
 
     private void discardAllTreasuresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardAllTreasuresActionPerformed
-        // TODO add your handling code here:
+        napakalakiModel.getCurrentPlayer().discardAllTreasures();
+        setPlayer(napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_discardAllTreasuresActionPerformed
 
 
