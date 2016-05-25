@@ -58,6 +58,8 @@ public class TreasureView extends javax.swing.JPanel {
         bonus = new javax.swing.JLabel();
         kind = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(38, 38, 38)));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -102,7 +104,7 @@ public class TreasureView extends javax.swing.JPanel {
                         .addComponent(kind)
                         .addComponent(name, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(bonus))
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(0, 13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +123,7 @@ public class TreasureView extends javax.swing.JPanel {
                             .addComponent(bonus))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)))
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         bindingGroup.bind();
