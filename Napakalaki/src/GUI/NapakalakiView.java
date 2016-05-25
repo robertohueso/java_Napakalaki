@@ -14,11 +14,12 @@ import NapakalakiGame.Napakalaki;
 public class NapakalakiView extends javax.swing.JFrame {
     
     private Napakalaki napakalakiModel;
+    private PlayerView aPlayer;
     
     public void setNapakalaki(Napakalaki napakalaki){
         this.napakalakiModel = napakalaki;
         player.removeAll();
-        PlayerView aPlayer = new PlayerView();
+        aPlayer = new PlayerView();
         aPlayer.setNapakalaki(this.napakalakiModel);
         aPlayer.setPlayer(this.napakalakiModel.getCurrentPlayer());
         aPlayer.setVisible(true);
@@ -85,16 +86,19 @@ public class NapakalakiView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(player, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(monster, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(meetMonster)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(combat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nextTurn))
-            .addComponent(combat_result)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(player, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(meetMonster)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(combat)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nextTurn))
+                    .addComponent(combat_result))
+                .addContainerGap(753, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +108,7 @@ public class NapakalakiView extends javax.swing.JFrame {
                     .addComponent(player, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(combat_result)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 550, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(meetMonster)
                     .addComponent(combat)
@@ -117,6 +121,7 @@ public class NapakalakiView extends javax.swing.JFrame {
     private void combatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combatActionPerformed
         combat.setEnabled(false);
         nextTurn.setEnabled(true);
+        aPlayer.enableButtons();
         
         switch(napakalakiModel.developCombat()){
             case WINGAME:
@@ -157,6 +162,8 @@ public class NapakalakiView extends javax.swing.JFrame {
         aMonster.setMonster(this.napakalakiModel.getCurrentMonster());
         aMonster.setVisible(true);
         monster.add(aMonster);
+        aPlayer.disableButtons();
+        
         repaint();
         revalidate();
     }//GEN-LAST:event_meetMonsterActionPerformed

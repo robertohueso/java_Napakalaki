@@ -41,7 +41,7 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
 
         bc = new javax.swing.JPanel();
 
-        bc.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        bc.setBorder(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

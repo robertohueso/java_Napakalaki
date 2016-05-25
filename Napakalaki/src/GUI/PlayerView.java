@@ -55,6 +55,20 @@ public class PlayerView extends javax.swing.JPanel {
         revalidate();
     }
     
+    public void disableButtons(){
+        makeVisible.setEnabled(false);
+        discardTreasures.setEnabled(false);
+        discardAllTreasures.setEnabled(false);
+        repaint();
+    }
+    
+    public void enableButtons(){
+        makeVisible.setEnabled(true);
+        discardTreasures.setEnabled(true);
+        discardAllTreasures.setEnabled(true);
+        repaint();
+    }
+    
     private ArrayList<Treasure> getSelectedTreasures(JPanel aPanel){
         TreasureView tv;
         ArrayList<Treasure> output = new ArrayList();
