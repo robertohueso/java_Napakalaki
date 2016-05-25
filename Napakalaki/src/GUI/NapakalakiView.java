@@ -17,6 +17,7 @@ public class NapakalakiView extends javax.swing.JFrame {
     
     public void setNapakalaki(Napakalaki napakalaki){
         this.napakalakiModel = napakalaki;
+        player.removeAll();
         PlayerView aPlayer = new PlayerView();
         aPlayer.setNapakalaki(this.napakalakiModel);
         aPlayer.setPlayer(this.napakalakiModel.getCurrentPlayer());
@@ -48,6 +49,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         meetMonster = new javax.swing.JButton();
         combat = new javax.swing.JButton();
         nextTurn = new javax.swing.JButton();
+        combat_result = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +65,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         });
 
         combat.setText("Combat");
+        combat.setEnabled(false);
         combat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combatActionPerformed(evt);
@@ -70,6 +73,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         });
 
         nextTurn.setText("Next Turn");
+        nextTurn.setEnabled(false);
         nextTurn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextTurnActionPerformed(evt);
@@ -90,6 +94,7 @@ public class NapakalakiView extends javax.swing.JFrame {
                 .addComponent(combat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nextTurn))
+            .addComponent(combat_result)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +102,9 @@ public class NapakalakiView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(monster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(player, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(combat_result)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(meetMonster)
                     .addComponent(combat)
@@ -108,17 +115,44 @@ public class NapakalakiView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void combatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combatActionPerformed
-        // TODO add your handling code here:
+        combat.setEnabled(false);
+        nextTurn.setEnabled(true);
+        
+        switch(napakalakiModel.developCombat()){
+            case WINGAME:
+                combat_result.setText("Enhorabuena, has ganado la partida!");
+                break;
+            case WIN:
+                combat_result.setText("Ganaste!");
+                break;
+            case LOSE:
+                combat_result.setText("Perdiste! Te toca cumplir el mal rollo.");
+                this.setNapakalaki(napakalakiModel);
+                break;
+            case LOSEANDCONVERT:
+                combat_result.setText("Te conviertes en sectario! Perdiste.");
+                this.setNapakalaki(napakalakiModel);
+                break;
+        }
     }//GEN-LAST:event_combatActionPerformed
 
     private void nextTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTurnActionPerformed
-        monster.removeAll();
-        player.removeAll();
-        napakalakiModel.nextTurn();
+        if(napakalakiModel.nextTurn()){
+            nextTurn.setEnabled(false);
+            meetMonster.setEnabled(true);
+            
+            monster.removeAll();
+            player.removeAll();
+            combat_result.setText("");
+        }
+        
         this.setNapakalaki(napakalakiModel);
     }//GEN-LAST:event_nextTurnActionPerformed
 
     private void meetMonsterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meetMonsterActionPerformed
+        meetMonster.setEnabled(false);
+        combat.setEnabled(true);
+        
         MonsterView aMonster = new MonsterView();
         aMonster.setMonster(this.napakalakiModel.getCurrentMonster());
         aMonster.setVisible(true);
@@ -130,6 +164,7 @@ public class NapakalakiView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton combat;
+    private javax.swing.JLabel combat_result;
     private javax.swing.JButton meetMonster;
     private javax.swing.JPanel monster;
     private javax.swing.JButton nextTurn;

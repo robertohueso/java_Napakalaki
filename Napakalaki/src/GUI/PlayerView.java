@@ -34,6 +34,7 @@ public class PlayerView extends javax.swing.JPanel {
     
     public void setPlayer(Player player){
         this.playerModel = player;
+        pendingBC.removeAll();
         name.setText(player.getName());
         level.setText(Integer.toString(playerModel.getLevels()));
         combat_level.setText(Integer.toString(playerModel.getCombatLevel()));

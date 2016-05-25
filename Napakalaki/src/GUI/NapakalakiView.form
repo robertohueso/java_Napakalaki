@@ -35,6 +35,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="nextTurn" min="-2" max="-2" attributes="0"/>
           </Group>
+          <Component id="combat_result" alignment="0" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -44,7 +45,9 @@
                   <Component id="monster" max="32767" attributes="0"/>
                   <Component id="player" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="256" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="combat_result" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="250" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="meetMonster" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="combat" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -88,6 +91,7 @@
     <Component class="javax.swing.JButton" name="combat">
       <Properties>
         <Property name="text" type="java.lang.String" value="Combat"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combatActionPerformed"/>
@@ -96,10 +100,13 @@
     <Component class="javax.swing.JButton" name="nextTurn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Next Turn"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextTurnActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="combat_result">
     </Component>
   </SubComponents>
 </Form>
