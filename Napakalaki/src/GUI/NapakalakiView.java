@@ -19,14 +19,11 @@ public class NapakalakiView extends javax.swing.JFrame {
         this.napakalakiModel = napakalaki;
         PlayerView aPlayer = new PlayerView();
         aPlayer.setNapakalaki(this.napakalakiModel);
-        MonsterView aMonster = new MonsterView();
         aPlayer.setPlayer(this.napakalakiModel.getCurrentPlayer());
-        aMonster.setMonster(this.napakalakiModel.getCurrentMonster());
         aPlayer.setVisible(true);
-        aMonster.setVisible(true);
         player.add(aPlayer);
-        monster.add(aMonster);
         repaint();
+        revalidate();
     }
 
     /**
@@ -59,6 +56,11 @@ public class NapakalakiView extends javax.swing.JFrame {
         monster.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         meetMonster.setText("Meet the monster");
+        meetMonster.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meetMonsterActionPerformed(evt);
+            }
+        });
 
         combat.setText("Combat");
         combat.addActionListener(new java.awt.event.ActionListener() {
@@ -110,8 +112,20 @@ public class NapakalakiView extends javax.swing.JFrame {
     }//GEN-LAST:event_combatActionPerformed
 
     private void nextTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTurnActionPerformed
-        // TODO add your handling code here:
+        monster.removeAll();
+        player.removeAll();
+        napakalakiModel.nextTurn();
+        this.setNapakalaki(napakalakiModel);
     }//GEN-LAST:event_nextTurnActionPerformed
+
+    private void meetMonsterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meetMonsterActionPerformed
+        MonsterView aMonster = new MonsterView();
+        aMonster.setMonster(this.napakalakiModel.getCurrentMonster());
+        aMonster.setVisible(true);
+        monster.add(aMonster);
+        repaint();
+        revalidate();
+    }//GEN-LAST:event_meetMonsterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
