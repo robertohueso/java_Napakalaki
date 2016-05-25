@@ -263,7 +263,11 @@ public class PlayerView extends javax.swing.JPanel {
     }//GEN-LAST:event_makeVisibleActionPerformed
 
     private void discardTreasuresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardTreasuresActionPerformed
-        // TODO add your handling code here:
+        ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasures);
+        ArrayList<Treasure> selVisible = getSelectedTreasures(visibleTreasures);
+        napakalakiModel.discardHiddenTreasures(selHidden);
+        napakalakiModel.discardVisibleTreasures(selVisible);
+        setPlayer(napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_discardTreasuresActionPerformed
 
     private void discardAllTreasuresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardAllTreasuresActionPerformed
